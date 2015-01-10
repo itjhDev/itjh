@@ -1,0 +1,64 @@
+//
+//  AppDelegate.swift
+//  itjh
+//
+//  Created by LijunSong on 14/11/23.
+//  Copyright (c) 2014年 itjh. All rights reserved.
+//
+
+import UIKit
+
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+   
+
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+
+        
+        //设置状态栏为白色
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        //设置微信key
+
+        
+        UMSocialData.setAppKey("54238dc5fd98c501b5028d70")
+        UMSocialSinaHandler.openSSOWithRedirectURL("http://sns.whalecloud.com/sina2/callback")
+       
+        UINavigationBar.appearance().barTintColor =  UIColor(red: 40/255.0, green: 132/255.0, blue: 200/255.0, alpha: 0.3)
+        //UINavigationBar.appearance().barTintColor = UIColorFromRGB(0x028fd6)
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+       
+        UITabBar.appearance().backgroundColor =  UIColor(red: 40/255.0, green: 132/255.0, blue: 200/255.0, alpha: 0.3)
+
+        
+        return true
+    }
+
+    func applicationWillResignActive(application: UIApplication) {
+        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    }
+
+    func applicationDidEnterBackground(application: UIApplication) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    }
+
+    func applicationWillEnterForeground(application: UIApplication) {
+        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    }
+
+    func applicationDidBecomeActive(application: UIApplication) {
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    }
+
+    func applicationWillTerminate(application: UIApplication) {
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+
+
+}
+
