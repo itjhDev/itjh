@@ -56,7 +56,7 @@ class HomeMySetTableViewController: UITableViewController {
         if sectionNum == 3 && rowNum == 0 || rowNum == 1 {
             println("点击了去评分")
            
-            let pStr = "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=946717730"
+            let pStr = "https://itunes.apple.com/zh/app/it-jiang-hu/id946717730?l=zh&ls=1&mt=8"
             
             let purl = NSURL(string: pStr)
             
