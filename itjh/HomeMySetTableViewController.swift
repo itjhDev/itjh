@@ -53,11 +53,15 @@ class HomeMySetTableViewController: UITableViewController {
         let sectionNum = indexPath.section
         let rowNum = indexPath.row
         
-        if sectionNum == 0 && rowNum == 0{
-            println("点击了我的资料")
-            //跳转到第三方登录页面
-            self.navigationController?.popToViewController(detailCtrl, animated: true)
-//            navigationController?(detailCtrl, animated: true)
+        if sectionNum == 3 && rowNum == 0 || rowNum == 1 {
+            println("点击了去评分")
+           
+            let pStr = "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=946717730"
+            
+            let purl = NSURL(string: pStr)
+            
+            UIApplication.sharedApplication().openURL(purl!)
+
             
         }
         
