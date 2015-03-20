@@ -7,5 +7,7 @@
 //
 #import <SDWebImage/UIImageView+WebCache.h>
 
+#import "UMSocial.h"
+
 
 

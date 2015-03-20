@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fK1-lK-vVD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="itjh_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="HomeViewController" customModule="itjh_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,12 +15,65 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BFK-aa-tei">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUM-yw-vZy">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="首页" image="tab_home_icon" id="tai-Ir-xCe"/>
+                                    <tabBarItem tag="1" title="技术" image="js" id="YjL-5u-b2h"/>
+                                    <tabBarItem tag="2" title="趣文" image="qw" id="hNB-ga-lzZ"/>
+                                    <tabBarItem tag="4" title="我的江湖" image="user" id="9ge-pK-5J5"/>
+                                </items>
+                            </tabBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vUM-yw-vZy" firstAttribute="bottom" secondItem="BFK-aa-tei" secondAttribute="bottom" id="0Di-BK-6Ql"/>
+                            <constraint firstItem="vUM-yw-vZy" firstAttribute="trailing" secondItem="BFK-aa-tei" secondAttribute="trailing" id="0mo-lP-HdG"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="vUM-yw-vZy" secondAttribute="bottom" id="7tX-gJ-PSu"/>
+                            <constraint firstItem="vUM-yw-vZy" firstAttribute="leading" secondItem="BFK-aa-tei" secondAttribute="leading" id="Ocb-V4-24m"/>
+                            <constraint firstAttribute="trailing" secondItem="vUM-yw-vZy" secondAttribute="trailing" id="VOZ-bh-AVT"/>
+                            <constraint firstItem="vUM-yw-vZy" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="jwO-0o-5G9"/>
+                            <constraint firstItem="BFK-aa-tei" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="sEV-L1-uRO"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Lw8-Tm-mzB"/>
+                    <connections>
+                        <outlet property="menuTabBar" destination="vUM-yw-vZy" id="XA0-Y7-mBB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="531" y="289"/>
+            <point key="canvasLocation" x="699" y="142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JTN-kK-CeN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fK1-lK-vVD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7MR-Sx-Hqf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="6xb-wP-Ofu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QtW-Qt-hzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="30" y="142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="js" width="30" height="30"/>
+        <image name="qw" width="30" height="30"/>
+        <image name="tab_home_icon" width="30" height="30"/>
+        <image name="user" width="30" height="30"/>
+    </resources>
 </document>
