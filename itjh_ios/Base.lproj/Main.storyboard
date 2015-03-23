@@ -17,8 +17,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BFK-aa-tei">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="552"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="wla-A7-tcB"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="YHD-hU-SvF"/>
+                                </connections>
                             </tableView>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUM-yw-vZy">
                                 <rect key="frame" x="0.0" y="551" width="600" height="49"/>
@@ -33,7 +37,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vUM-yw-vZy" firstAttribute="bottom" secondItem="BFK-aa-tei" secondAttribute="bottom" id="0Di-BK-6Ql"/>
+                            <constraint firstItem="vUM-yw-vZy" firstAttribute="bottom" secondItem="BFK-aa-tei" secondAttribute="bottom" constant="48" id="0Di-BK-6Ql"/>
                             <constraint firstItem="vUM-yw-vZy" firstAttribute="trailing" secondItem="BFK-aa-tei" secondAttribute="trailing" id="0mo-lP-HdG"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="vUM-yw-vZy" secondAttribute="bottom" id="7tX-gJ-PSu"/>
                             <constraint firstItem="vUM-yw-vZy" firstAttribute="leading" secondItem="BFK-aa-tei" secondAttribute="leading" id="Ocb-V4-24m"/>
@@ -44,6 +48,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Lw8-Tm-mzB"/>
                     <connections>
+                        <outlet property="atableView" destination="BFK-aa-tei" id="qSs-P0-zUS"/>
                         <outlet property="menuTabBar" destination="vUM-yw-vZy" id="XA0-Y7-mBB"/>
                     </connections>
                 </viewController>

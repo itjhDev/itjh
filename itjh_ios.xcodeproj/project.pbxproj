@@ -15,6 +15,22 @@
 		F45542301A81061D00B66334 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F455422F1A81061D00B66334 /* Images.xcassets */; };
 		F45542331A81061D00B66334 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45542311A81061D00B66334 /* LaunchScreen.xib */; };
 		F455423F1A81061D00B66334 /* itjh_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455423E1A81061D00B66334 /* itjh_iosTests.swift */; };
+		F49AC4B81AC04C96008F925D /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F49AC49C1AC04C96008F925D /* libSocialSina.a */; };
+		F49AC4BD1AC04C96008F925D /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F49AC4A71AC04C96008F925D /* libSocialWechat.a */; };
+		F49AC4BE1AC04C96008F925D /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F49AC4A81AC04C96008F925D /* libWeChatSDK.a */; };
+		F49AC4BF1AC04C96008F925D /* libSocialWhatsapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F49AC4AD1AC04C96008F925D /* libSocialWhatsapp.a */; };
+		F49AC4DB1AC05129008F925D /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F49AC4C31AC05129008F925D /* MJRefresh.bundle */; };
+		F49AC4DC1AC05129008F925D /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = F49AC4C61AC05129008F925D /* MJRefreshComponent.m */; };
+		F49AC4DD1AC05129008F925D /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F49AC4C81AC05129008F925D /* MJRefreshConst.m */; };
+		F49AC4DE1AC05129008F925D /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F49AC4CA1AC05129008F925D /* MJRefreshFooter.m */; };
+		F49AC4DF1AC05129008F925D /* MJRefreshGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F49AC4CC1AC05129008F925D /* MJRefreshGifFooter.m */; };
+		F49AC4E01AC05129008F925D /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F49AC4CE1AC05129008F925D /* MJRefreshGifHeader.m */; };
+		F49AC4E11AC05129008F925D /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F49AC4D01AC05129008F925D /* MJRefreshHeader.m */; };
+		F49AC4E21AC05129008F925D /* MJRefreshLegendFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F49AC4D21AC05129008F925D /* MJRefreshLegendFooter.m */; };
+		F49AC4E31AC05129008F925D /* MJRefreshLegendHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F49AC4D41AC05129008F925D /* MJRefreshLegendHeader.m */; };
+		F49AC4E41AC05129008F925D /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F49AC4D61AC05129008F925D /* UIScrollView+MJExtension.m */; };
+		F49AC4E51AC05129008F925D /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = F49AC4D81AC05129008F925D /* UIScrollView+MJRefresh.m */; };
+		F49AC4E61AC05129008F925D /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F49AC4DA1AC05129008F925D /* UIView+MJExtension.m */; };
 		F49ED3471ABC438D005BC563 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49ED3461ABC438D005BC563 /* BaseViewController.swift */; };
 		F49ED34A1ABC45A2005BC563 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49ED3491ABC45A2005BC563 /* HomeViewController.swift */; };
 		F49ED34D1ABC47A0005BC563 /* HomeArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49ED34B1ABC47A0005BC563 /* HomeArticleTableViewCell.swift */; };
@@ -77,6 +93,39 @@
 		F455423D1A81061D00B66334 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F455423E1A81061D00B66334 /* itjh_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itjh_iosTests.swift; sourceTree = "<group>"; };
 		F456AF801AB0734200605B9B /* itjh_ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "itjh_ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		F49AC49C1AC04C96008F925D /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
+		F49AC49D1AC04C96008F925D /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSinaHandler.h; sourceTree = "<group>"; };
+		F49AC4A71AC04C96008F925D /* libSocialWechat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWechat.a; sourceTree = "<group>"; };
+		F49AC4A81AC04C96008F925D /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		F49AC4A91AC04C96008F925D /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
+		F49AC4AA1AC04C96008F925D /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		F49AC4AB1AC04C96008F925D /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		F49AC4AD1AC04C96008F925D /* libSocialWhatsapp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWhatsapp.a; sourceTree = "<group>"; };
+		F49AC4AE1AC04C96008F925D /* UMSocialWhatsappHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWhatsappHandler.h; sourceTree = "<group>"; };
+		F49AC4C31AC05129008F925D /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		F49AC4C41AC05129008F925D /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		F49AC4C51AC05129008F925D /* MJRefreshComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshComponent.h; sourceTree = "<group>"; };
+		F49AC4C61AC05129008F925D /* MJRefreshComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshComponent.m; sourceTree = "<group>"; };
+		F49AC4C71AC05129008F925D /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
+		F49AC4C81AC05129008F925D /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
+		F49AC4C91AC05129008F925D /* MJRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooter.h; sourceTree = "<group>"; };
+		F49AC4CA1AC05129008F925D /* MJRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooter.m; sourceTree = "<group>"; };
+		F49AC4CB1AC05129008F925D /* MJRefreshGifFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshGifFooter.h; sourceTree = "<group>"; };
+		F49AC4CC1AC05129008F925D /* MJRefreshGifFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshGifFooter.m; sourceTree = "<group>"; };
+		F49AC4CD1AC05129008F925D /* MJRefreshGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshGifHeader.h; sourceTree = "<group>"; };
+		F49AC4CE1AC05129008F925D /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshGifHeader.m; sourceTree = "<group>"; };
+		F49AC4CF1AC05129008F925D /* MJRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeader.h; sourceTree = "<group>"; };
+		F49AC4D01AC05129008F925D /* MJRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeader.m; sourceTree = "<group>"; };
+		F49AC4D11AC05129008F925D /* MJRefreshLegendFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshLegendFooter.h; sourceTree = "<group>"; };
+		F49AC4D21AC05129008F925D /* MJRefreshLegendFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshLegendFooter.m; sourceTree = "<group>"; };
+		F49AC4D31AC05129008F925D /* MJRefreshLegendHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshLegendHeader.h; sourceTree = "<group>"; };
+		F49AC4D41AC05129008F925D /* MJRefreshLegendHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshLegendHeader.m; sourceTree = "<group>"; };
+		F49AC4D51AC05129008F925D /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
+		F49AC4D61AC05129008F925D /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
+		F49AC4D71AC05129008F925D /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
+		F49AC4D81AC05129008F925D /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
+		F49AC4D91AC05129008F925D /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
+		F49AC4DA1AC05129008F925D /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		F49ED3461ABC438D005BC563 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F49ED3491ABC45A2005BC563 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F49ED34B1ABC47A0005BC563 /* HomeArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeArticleTableViewCell.swift; sourceTree = "<group>"; };
@@ -130,9 +179,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F49AC4BE1AC04C96008F925D /* libWeChatSDK.a in Frameworks */,
 				45FCBEC4C7AAFCAE17DFFE6E /* Pods.framework in Frameworks */,
 				F49ED3D41ABC4D56005BC563 /* libUMSocial_Sdk_4.2.1.a in Frameworks */,
+				F49AC4BF1AC04C96008F925D /* libSocialWhatsapp.a in Frameworks */,
+				F49AC4B81AC04C96008F925D /* libSocialSina.a in Frameworks */,
 				F49ED3D51ABC4D57005BC563 /* libUMSocial_Sdk_Comment_4.2.1.a in Frameworks */,
+				F49AC4BD1AC04C96008F925D /* libSocialWechat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +286,77 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
+		F49AC4911AC04C96008F925D /* UMSocial_Sdk_Extra_Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F49AC49B1AC04C96008F925D /* Sina */,
+				F49AC4A61AC04C96008F925D /* Wechat */,
+				F49AC4AC1AC04C96008F925D /* Whatsapp */,
+			);
+			path = UMSocial_Sdk_Extra_Frameworks;
+			sourceTree = "<group>";
+		};
+		F49AC49B1AC04C96008F925D /* Sina */ = {
+			isa = PBXGroup;
+			children = (
+				F49AC49C1AC04C96008F925D /* libSocialSina.a */,
+				F49AC49D1AC04C96008F925D /* UMSocialSinaHandler.h */,
+			);
+			path = Sina;
+			sourceTree = "<group>";
+		};
+		F49AC4A61AC04C96008F925D /* Wechat */ = {
+			isa = PBXGroup;
+			children = (
+				F49AC4A71AC04C96008F925D /* libSocialWechat.a */,
+				F49AC4A81AC04C96008F925D /* libWeChatSDK.a */,
+				F49AC4A91AC04C96008F925D /* UMSocialWechatHandler.h */,
+				F49AC4AA1AC04C96008F925D /* WXApi.h */,
+				F49AC4AB1AC04C96008F925D /* WXApiObject.h */,
+			);
+			path = Wechat;
+			sourceTree = "<group>";
+		};
+		F49AC4AC1AC04C96008F925D /* Whatsapp */ = {
+			isa = PBXGroup;
+			children = (
+				F49AC4AD1AC04C96008F925D /* libSocialWhatsapp.a */,
+				F49AC4AE1AC04C96008F925D /* UMSocialWhatsappHandler.h */,
+			);
+			path = Whatsapp;
+			sourceTree = "<group>";
+		};
+		F49AC4C21AC05129008F925D /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				F49AC4C31AC05129008F925D /* MJRefresh.bundle */,
+				F49AC4C41AC05129008F925D /* MJRefresh.h */,
+				F49AC4C51AC05129008F925D /* MJRefreshComponent.h */,
+				F49AC4C61AC05129008F925D /* MJRefreshComponent.m */,
+				F49AC4C71AC05129008F925D /* MJRefreshConst.h */,
+				F49AC4C81AC05129008F925D /* MJRefreshConst.m */,
+				F49AC4C91AC05129008F925D /* MJRefreshFooter.h */,
+				F49AC4CA1AC05129008F925D /* MJRefreshFooter.m */,
+				F49AC4CB1AC05129008F925D /* MJRefreshGifFooter.h */,
+				F49AC4CC1AC05129008F925D /* MJRefreshGifFooter.m */,
+				F49AC4CD1AC05129008F925D /* MJRefreshGifHeader.h */,
+				F49AC4CE1AC05129008F925D /* MJRefreshGifHeader.m */,
+				F49AC4CF1AC05129008F925D /* MJRefreshHeader.h */,
+				F49AC4D01AC05129008F925D /* MJRefreshHeader.m */,
+				F49AC4D11AC05129008F925D /* MJRefreshLegendFooter.h */,
+				F49AC4D21AC05129008F925D /* MJRefreshLegendFooter.m */,
+				F49AC4D31AC05129008F925D /* MJRefreshLegendHeader.h */,
+				F49AC4D41AC05129008F925D /* MJRefreshLegendHeader.m */,
+				F49AC4D51AC05129008F925D /* UIScrollView+MJExtension.h */,
+				F49AC4D61AC05129008F925D /* UIScrollView+MJExtension.m */,
+				F49AC4D71AC05129008F925D /* UIScrollView+MJRefresh.h */,
+				F49AC4D81AC05129008F925D /* UIScrollView+MJRefresh.m */,
+				F49AC4D91AC05129008F925D /* UIView+MJExtension.h */,
+				F49AC4DA1AC05129008F925D /* UIView+MJExtension.m */,
+			);
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
 		F49ED3481ABC4405005BC563 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,14 +370,16 @@
 		F49ED34F1ABC4C0E005BC563 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				F49ED3B71ABC4D56005BC563 /* UMSocial_Sdk_4.2.1 */,
+				F49AC4C21AC05129008F925D /* MJRefresh */,
+				F49ED3B71ABC4D56005BC563 /* UMSocial_Sdk_4.2 */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		F49ED3B71ABC4D56005BC563 /* UMSocial_Sdk_4.2.1 */ = {
+		F49ED3B71ABC4D56005BC563 /* UMSocial_Sdk_4.2 */ = {
 			isa = PBXGroup;
 			children = (
+				F49AC4911AC04C96008F925D /* UMSocial_Sdk_Extra_Frameworks */,
 				F49ED3B81ABC4D56005BC563 /* UMSocialLocalizable.strings */,
 				F49ED3BA1ABC4D56005BC563 /* Header */,
 				F49ED3C61ABC4D56005BC563 /* libUMSocial_Sdk_4.2.1.a */,
@@ -261,6 +387,7 @@
 				F49ED3C81ABC4D56005BC563 /* SocialSDKXib */,
 				F49ED3D11ABC4D56005BC563 /* UMSocialSDKResourcesNew.bundle */,
 			);
+			name = UMSocial_Sdk_4.2;
 			path = UMSocial_Sdk_4.2.1;
 			sourceTree = "<group>";
 		};
@@ -442,6 +569,7 @@
 				F49ED3D81ABC4D57005BC563 /* UMSCommentInputControlleriPad.xib in Resources */,
 				F4BF9EE51AB8615600CBF98F /* default_showPic@3x.png in Resources */,
 				F4BF9EF41AB8615F00CBF98F /* icon152.png in Resources */,
+				F49AC4DB1AC05129008F925D /* MJRefresh.bundle in Resources */,
 				F45542301A81061D00B66334 /* Images.xcassets in Resources */,
 				F4BF9EEA1AB8615600CBF98F /* itjh_lanuch@3x.png in Resources */,
 				F4BF9EF51AB8615F00CBF98F /* icon120.png in Resources */,
@@ -520,14 +648,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F49AC4E31AC05129008F925D /* MJRefreshLegendHeader.m in Sources */,
 				F49ED3471ABC438D005BC563 /* BaseViewController.swift in Sources */,
+				F49AC4E21AC05129008F925D /* MJRefreshLegendFooter.m in Sources */,
+				F49AC4E41AC05129008F925D /* UIScrollView+MJExtension.m in Sources */,
+				F49AC4DE1AC05129008F925D /* MJRefreshFooter.m in Sources */,
+				F49AC4DF1AC05129008F925D /* MJRefreshGifFooter.m in Sources */,
+				F49AC4E11AC05129008F925D /* MJRefreshHeader.m in Sources */,
 				F4BF9ED21AB85C8400CBF98F /* Article.swift in Sources */,
 				F49ED4111ABC5223005BC563 /* Define.swift in Sources */,
 				F455422B1A81061D00B66334 /* ViewController.swift in Sources */,
+				F49AC4DD1AC05129008F925D /* MJRefreshConst.m in Sources */,
 				F49ED34D1ABC47A0005BC563 /* HomeArticleTableViewCell.swift in Sources */,
+				F49AC4DC1AC05129008F925D /* MJRefreshComponent.m in Sources */,
 				F45542291A81061D00B66334 /* itjh_ios.xcdatamodeld in Sources */,
+				F49AC4E51AC05129008F925D /* UIScrollView+MJRefresh.m in Sources */,
+				F49AC4E61AC05129008F925D /* UIView+MJExtension.m in Sources */,
 				F45542261A81061D00B66334 /* AppDelegate.swift in Sources */,
 				F49ED34A1ABC45A2005BC563 /* HomeViewController.swift in Sources */,
+				F49AC4E01AC05129008F925D /* MJRefreshGifHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,10 +801,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/TencentOpenAPI",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 				);
 				INFOPLIST_FILE = itjh_ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -695,6 +836,15 @@
 					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/Wechat",
 					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/Whatsapp",
 					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/YiXin",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/Instagram",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/LaiWang",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/Line",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/Sina",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/Tumblr",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/Wechat",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/Whatsapp",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/YiXin",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "itjh_ios/itjh_ios-Bridging-Header.h";
@@ -709,10 +859,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/TencentOpenAPI",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 				);
 				INFOPLIST_FILE = itjh_ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -742,6 +894,15 @@
 					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/Wechat",
 					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/Whatsapp",
 					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/YiXin",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/Instagram",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/LaiWang",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/Line",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/Sina",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/Tumblr",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/Wechat",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/Whatsapp",
+					"$(PROJECT_DIR)/itjh_ios/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/YiXin",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "itjh_ios/itjh_ios-Bridging-Header.h";
