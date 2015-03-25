@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        NSThread.sleepForTimeInterval(3.0)
+         //设置状态栏为白色
         UINavigationBar.appearance().barStyle = UIBarStyle.Black
         //设置微信key
         UMSocialData.setAppKey("54238dc5fd98c501b5028d70")
@@ -28,12 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UITabBar.appearance().backgroundColor =  UIColor(red: 40/255.0, green: 132/255.0, blue: 200/255.0, alpha: 0.3)
         
-//       
-//        let homev = HomeViewController()
-//        homev.viewDidLoad()
-//        
-//        
-//        
+
         
         
         return true

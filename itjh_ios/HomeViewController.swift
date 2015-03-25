@@ -38,16 +38,15 @@ class HomeViewController: BaseViewController  {
         self.loadNewData()
 
         self.atableView.addLegendHeaderWithRefreshingBlock { () -> Void in
-            println("下拉刷新数据")
             self.loadNewData()
            
         }
         self.atableView.legendHeader.beginRefreshing()
         self.atableView.addLegendFooterWithRefreshingBlock { () -> Void in
-            println("上拉加载数据")
             self.loadMoreData()
         }
-        
+        self.atableView.footer.hidden = true
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -160,7 +159,7 @@ class HomeViewController: BaseViewController  {
     }
     // MARK: 下拉刷新数据
     func loadNewData(){
-         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+
         // 1.添加假数据
         self.PAGE_NUM = 0
         loadData(self.PAGE_NUM, size: SHOW_NUM)
@@ -174,8 +173,10 @@ class HomeViewController: BaseViewController  {
             
             // 拿到当前的下拉刷新控件，结束刷新状态
             self.atableView.header.endRefreshing()
-        });
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            self.atableView.footer.hidden = false
 
+        });
+
+        
     }
 }

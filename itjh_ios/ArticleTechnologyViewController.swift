@@ -25,22 +25,20 @@ class ArticleTechnologyViewController: BaseViewController {
         //加载nib
         var nib = UINib(nibName: "HomeArticleTableViewCell", bundle: nil)
         self.atableView.registerNib(nib, forCellReuseIdentifier: identifier)
-        
         self.navigationTitle.text = "技术"
         
         self.loadNewData()
         
         self.atableView.addLegendHeaderWithRefreshingBlock { () -> Void in
-            println("下拉刷新数据")
             self.loadNewData()
         }
-        
+        self.atableView.legendHeader.beginRefreshing()
+
         self.atableView.addLegendFooterWithRefreshingBlock { () -> Void in
-            println("上拉加载数据")
-            
             self.loadMoreData()
         }
-        
+        self.atableView.footer.hidden = true
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -165,6 +163,8 @@ class ArticleTechnologyViewController: BaseViewController {
             
             // 拿到当前的下拉刷新控件，结束刷新状态
             self.atableView.header.endRefreshing()
+            self.atableView.footer.hidden = false
+
         });
     }
 
