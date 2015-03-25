@@ -1,8 +1,8 @@
 //
-//  HomeViewController.swift
+//  ArticleInterestingViewController.swift
 //  itjh_ios
 //
-//  Created by LijunSong on 15/3/20.
+//  Created by LijunSong on 15/3/26.
 //  Copyright (c) 2015年 LijunSong. All rights reserved.
 //
 
@@ -10,21 +10,14 @@ import UIKit
 import Alamofire
 import SCLAlertView
 import SwiftyJSON
-
-
-class HomeViewController: BaseViewController  {
-    
+class ArticleInterestingViewController: BaseViewController {
 
     @IBOutlet weak var atableView: UITableView!
     
-    var url = GET_ARTICLE
+    var url = GET_ARTICLE_CATEGORY + "4/"
     
     var currentArticleData:[Article] =  []
-
     
-    func yload(){
-        self.viewDidLoad()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,27 +26,27 @@ class HomeViewController: BaseViewController  {
         var nib = UINib(nibName: "HomeArticleTableViewCell", bundle: nil)
         self.atableView.registerNib(nib, forCellReuseIdentifier: identifier)
         
-        self.navigationTitle.text = "IT江湖"
+        self.navigationTitle.text = "趣文"
         
         self.loadNewData()
-
+        
         self.atableView.addLegendHeaderWithRefreshingBlock { () -> Void in
             println("下拉刷新数据")
             self.loadNewData()
-           
         }
-        self.atableView.legendHeader.beginRefreshing()
+        
         self.atableView.addLegendFooterWithRefreshingBlock { () -> Void in
             println("上拉加载数据")
+            
             self.loadMoreData()
         }
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-  
+    
     
     // MARK: 加载数据
     func loadData(offset:Int, size:Int){
@@ -63,10 +56,8 @@ class HomeViewController: BaseViewController  {
         
         if self.PAGE_NUM == 0{
             if !currentArticleData.isEmpty{
-                 self.currentArticleData.removeAll(keepCapacity: false)
+                self.currentArticleData.removeAll(keepCapacity: false)
             }
-           
-//            self.atableView.reloadData()
         }
         
         // 请求数据
@@ -110,23 +101,23 @@ class HomeViewController: BaseViewController  {
         cell.atitle.text = currentArticleData[indexPath.row].title
         cell.aimg.sd_setImageWithURL(NSURL(string: currentArticleData[indexPath.row].img), placeholderImage: UIImage(named: "default_showPic.png"))
         
-         return cell
+        return cell
     }
     
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
         
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
-    
+        
         var data = self.currentArticleData[indexPath.row]
-      
+        
         var detailCtrl = ArticlesShowViewController(nibName: "ArticlesShowViewController", bundle: nil);
         detailCtrl.artID = data.aid
         detailCtrl.atitle = data.title
         detailCtrl.aimg = data.img
         detailCtrl.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detailCtrl, animated: true)
-    
+        
     }
     
     
@@ -141,7 +132,6 @@ class HomeViewController: BaseViewController  {
     
     // MARK: 上拉加载数据
     func loadMoreData(){
-       
         // 1.添加数据
         self.PAGE_NUM += 1
         loadData(self.PAGE_NUM, size: SHOW_NUM)
@@ -155,12 +145,11 @@ class HomeViewController: BaseViewController  {
             self.atableView.reloadData()
             self.atableView.footer.endRefreshing();
             
-
+            
         })
     }
     // MARK: 下拉刷新数据
     func loadNewData(){
-         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         // 1.添加假数据
         self.PAGE_NUM = 0
         loadData(self.PAGE_NUM, size: SHOW_NUM)
@@ -170,12 +159,11 @@ class HomeViewController: BaseViewController  {
         var popTime:dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW,delayInSeconds)
         dispatch_after(popTime, dispatch_get_main_queue(), {
             
-           self.atableView.reloadData()
+            self.atableView.reloadData()
             
             // 拿到当前的下拉刷新控件，结束刷新状态
             self.atableView.header.endRefreshing()
         });
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-
     }
+
 }

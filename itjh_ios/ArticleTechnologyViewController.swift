@@ -7,29 +7,165 @@
 //
 
 import UIKit
+import Alamofire
+import SCLAlertView
+import SwiftyJSON
+class ArticleTechnologyViewController: BaseViewController {
 
-class ArticleTechnologyViewController: HomeViewController {
-
+    @IBOutlet weak var atableView: UITableView!
+    
+    var url = GET_ARTICLE_CATEGORY + "2/"
+    
+    var currentArticleData:[Article] =  []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
+        
+        //加载nib
+        var nib = UINib(nibName: "HomeArticleTableViewCell", bundle: nil)
+        self.atableView.registerNib(nib, forCellReuseIdentifier: identifier)
+        
+        self.navigationTitle.text = "技术"
+        
+        self.loadNewData()
+        
+        self.atableView.addLegendHeaderWithRefreshingBlock { () -> Void in
+            println("下拉刷新数据")
+            self.loadNewData()
+        }
+        
+        self.atableView.addLegendFooterWithRefreshingBlock { () -> Void in
+            println("上拉加载数据")
+            
+            self.loadMoreData()
+        }
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
-    */
+    
+    
+    // MARK: 加载数据
+    func loadData(offset:Int, size:Int){
+        
+        //接口url
+        var articleUrl = url + "\(offset)/\(size)"
+        
+        if self.PAGE_NUM == 0{
+            if !currentArticleData.isEmpty{
+                self.currentArticleData.removeAll(keepCapacity: false)
+            }
+           
+//            self.atableView.reloadData()
+        }
+        
+        // 请求数据
+        Alamofire.request(.GET, articleUrl).responseJSON { (_, _, JSON_DATA, _) -> Void in
+            if JSON_DATA == nil{
+                SCLAlertView().showWarning("温馨提示", subTitle:"您的网络在开小差,赶紧制服它,精彩的文章在等你.", closeButtonTitle:"去制服")
+                return
+            }else{
+                
+                let data = JSON(JSON_DATA!)
+                let articlesArray = data["content"].arrayValue
+                for currentArticle in articlesArray{
+                    let article = Article()
+                    article.aid = currentArticle["aid"].int!
+                    article.title = currentArticle["title"].string!
+                    article.date = currentArticle["date"].string!
+                    article.img = currentArticle["img"].string!
+                    article.author_id = currentArticle["author_id"].int!
+                    article.author = currentArticle["author"].string!
+                    self.currentArticleData.append(article)
+                }
+            }
+        }
+    }
+    
+    
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return currentArticleData.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> HomeArticleTableViewCell {
+        
+        var cell:HomeArticleTableViewCell! = atableView.dequeueReusableCellWithIdentifier(identifier) as HomeArticleTableViewCell
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        
+        cell.atitle.text = currentArticleData[indexPath.row].title
+        cell.aimg.sd_setImageWithURL(NSURL(string: currentArticleData[indexPath.row].img), placeholderImage: UIImage(named: "default_showPic.png"))
+        
+         return cell
+    }
+    
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    
+        var data = self.currentArticleData[indexPath.row]
+      
+        var detailCtrl = ArticlesShowViewController(nibName: "ArticlesShowViewController", bundle: nil);
+        detailCtrl.artID = data.aid
+        detailCtrl.atitle = data.title
+        detailCtrl.aimg = data.img
+        detailCtrl.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(detailCtrl, animated: true)
+    
+    }
+    
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 95
+    }
+    
+    func randomInRange(range: Range<Int>) -> Int {
+        let count = UInt32(range.endIndex - range.startIndex)
+        return  Int(arc4random_uniform(count)) + range.startIndex
+    }
+    
+    // MARK: 上拉加载数据
+    func loadMoreData(){
+        // 1.添加数据
+        self.PAGE_NUM += 1
+        loadData(self.PAGE_NUM, size: SHOW_NUM)
+        
+        // 2.刷新表格
+        // 拿到当前的上拉刷新控件，结束刷新状态
+        let delayInSeconds:Int64 = 1000000000 * 2
+        var popTime:dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW,delayInSeconds)
+        dispatch_after(popTime, dispatch_get_main_queue(), {
+            
+            self.atableView.reloadData()
+            self.atableView.footer.endRefreshing();
+            
+
+        })
+    }
+    // MARK: 下拉刷新数据
+    func loadNewData(){
+        // 1.添加假数据
+        self.PAGE_NUM = 0
+        loadData(self.PAGE_NUM, size: SHOW_NUM)
+        
+        // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
+        let delayInSeconds:Int64 = 1000000000 * 1
+        var popTime:dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW,delayInSeconds)
+        dispatch_after(popTime, dispatch_get_main_queue(), {
+            
+           self.atableView.reloadData()
+            
+            // 拿到当前的下拉刷新控件，结束刷新状态
+            self.atableView.header.endRefreshing()
+        });
+    }
 
 }

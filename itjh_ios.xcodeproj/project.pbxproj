@@ -52,6 +52,7 @@
 		F4A504141AC3051F00207C6D /* ArticleTechnologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504131AC3051F00207C6D /* ArticleTechnologyViewController.swift */; };
 		F4A504171AC3123B00207C6D /* ArticlesShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504151AC3123B00207C6D /* ArticlesShowViewController.swift */; };
 		F4A504181AC3123B00207C6D /* ArticlesShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A504161AC3123B00207C6D /* ArticlesShowViewController.xib */; };
+		F4A5041A1AC3240A00207C6D /* ArticleInterestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504191AC3240A00207C6D /* ArticleInterestingViewController.swift */; };
 		F4BF9ED21AB85C8400CBF98F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BF9ED11AB85C8400CBF98F /* Article.swift */; };
 		F4BF9EE11AB8615600CBF98F /* daohang_wode_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BF9ED61AB8615600CBF98F /* daohang_wode_1.png */; };
 		F4BF9EE21AB8615600CBF98F /* daohang_wode.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BF9ED71AB8615600CBF98F /* daohang_wode.png */; };
@@ -163,6 +164,7 @@
 		F4A504131AC3051F00207C6D /* ArticleTechnologyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTechnologyViewController.swift; sourceTree = "<group>"; };
 		F4A504151AC3123B00207C6D /* ArticlesShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesShowViewController.swift; sourceTree = "<group>"; };
 		F4A504161AC3123B00207C6D /* ArticlesShowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticlesShowViewController.xib; sourceTree = "<group>"; };
+		F4A504191AC3240A00207C6D /* ArticleInterestingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleInterestingViewController.swift; sourceTree = "<group>"; };
 		F4BF9ED11AB85C8400CBF98F /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		F4BF9ED61AB8615600CBF98F /* daohang_wode_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daohang_wode_1.png; sourceTree = "<group>"; };
 		F4BF9ED71AB8615600CBF98F /* daohang_wode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daohang_wode.png; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 				F49ED34C1ABC47A0005BC563 /* HomeArticleTableViewCell.xib */,
 				F49ED3491ABC45A2005BC563 /* HomeViewController.swift */,
 				F4A504131AC3051F00207C6D /* ArticleTechnologyViewController.swift */,
+				F4A504191AC3240A00207C6D /* ArticleInterestingViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				F49AC4DD1AC05129008F925D /* MJRefreshConst.m in Sources */,
 				F49ED34D1ABC47A0005BC563 /* HomeArticleTableViewCell.swift in Sources */,
 				F49AC4DC1AC05129008F925D /* MJRefreshComponent.m in Sources */,
+				F4A5041A1AC3240A00207C6D /* ArticleInterestingViewController.swift in Sources */,
 				F45542291A81061D00B66334 /* itjh_ios.xcdatamodeld in Sources */,
 				F49AC4E51AC05129008F925D /* UIScrollView+MJRefresh.m in Sources */,
 				F4A504121AC2E24200207C6D /* Constants.swift in Sources */,
