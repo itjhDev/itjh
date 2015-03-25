@@ -8,15 +8,19 @@
 
 import UIKit
 import Alamofire
+import SCLAlertView
+import SwiftyJSON
 
 
-class HomeViewController: BaseViewController,UITabBarControllerDelegate,UITabBarDelegate  {
+class HomeViewController: BaseViewController,UITabBarDelegate,UITabBarControllerDelegate  {
     
     @IBOutlet weak var menuTabBar: UITabBar!
 
     @IBOutlet weak var atableView: UITableView!
     
-   
+    
+    var currentArticleData:[Article] =  []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,17 +33,17 @@ class HomeViewController: BaseViewController,UITabBarControllerDelegate,UITabBar
         menuTabBar.backgroundColor = UIColor.whiteColor()
         menuTabBar.delegate = self
         
+        
+        self.loadNewData()
+
         self.atableView.addLegendHeaderWithRefreshingBlock { () -> Void in
-            
             println("下拉刷新数据")
-            // 拿到当前的下拉刷新控件，结束刷新状态
-            self.atableView.header.endRefreshing()
+            self.loadNewData()
         }
         
         self.atableView.addLegendFooterWithRefreshingBlock { () -> Void in
             println("上拉加载数据")
-            
-            
+    
             self.loadMoreData()
         }
         
@@ -47,7 +51,6 @@ class HomeViewController: BaseViewController,UITabBarControllerDelegate,UITabBar
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
     }
     
     /**
@@ -68,10 +71,9 @@ class HomeViewController: BaseViewController,UITabBarControllerDelegate,UITabBar
             
         case 1:
             self.navigationTitle.text = "技术"
-        
-        
-        
-        
+            
+
+            
         case 2:
             self.navigationTitle.text = "趣文"
         case 4:
@@ -83,6 +85,51 @@ class HomeViewController: BaseViewController,UITabBarControllerDelegate,UITabBar
         
     }
     
+
+
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController){
+        
+        println("sss")
+    }
+    
+    
+    // MARK: 加载数据
+    func loadData(offset:Int, size:Int){
+        
+        //接口url
+        var articleUrl = GET_ARTICLE + "\(offset)/\(size)"
+        
+        if self.PAGE_NUM == 0{
+            if !currentArticleData.isEmpty{
+                 self.currentArticleData.removeAll(keepCapacity: false)
+            }
+           
+//            self.atableView.reloadData()
+        }
+        
+        // 请求数据
+        Alamofire.request(.GET, articleUrl).responseJSON { (_, _, JSON_DATA, _) -> Void in
+            if JSON_DATA == nil{
+                SCLAlertView().showWarning("温馨提示", subTitle:"您的网络在开小差,赶紧制服它,精彩的文章在等你.", closeButtonTitle:"去制服")
+                return
+            }else{
+                
+                let data = JSON(JSON_DATA!)
+                let articlesArray = data["content"].arrayValue
+                for currentArticle in articlesArray{
+                    let article = Article()
+                    article.aid = currentArticle["aid"].int!
+                    article.title = currentArticle["title"].string!
+                    article.date = currentArticle["date"].string!
+                    article.img = currentArticle["img"].string!
+                    article.author_id = currentArticle["author_id"].int!
+                    article.author = currentArticle["author"].string!
+                    self.currentArticleData.append(article)
+                }
+            }
+        }
+    }
+    
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -90,24 +137,16 @@ class HomeViewController: BaseViewController,UITabBarControllerDelegate,UITabBar
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return currentArticleData.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> HomeArticleTableViewCell {
         
         var cell:HomeArticleTableViewCell! = atableView.dequeueReusableCellWithIdentifier(identifier) as HomeArticleTableViewCell
-        
-//        var cell = atableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as HomeArticleTableViewCell!
-        
-      
-        
-     
-        
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         
-        cell.atitle.text = dataSource[indexPath.row].title
-        cell.aimg.image = UIImage(named:"default_showPic.png")
-
+        cell.atitle.text = currentArticleData[indexPath.row].title
+        cell.aimg.sd_setImageWithURL(NSURL(string: currentArticleData[indexPath.row].img), placeholderImage: UIImage(named: "default_showPic.png"))
         
          return cell
     }
@@ -117,9 +156,14 @@ class HomeViewController: BaseViewController,UITabBarControllerDelegate,UITabBar
         
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
     
-    
-    
-        println("点击了")
+        var data = self.currentArticleData[indexPath.row]
+      
+        var detailCtrl = ArticlesShowViewController(nibName: "ArticlesShowViewController", bundle: nil);
+        detailCtrl.artID = data.aid
+        detailCtrl.atitle = data.title
+        detailCtrl.aimg = data.img
+        detailCtrl.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(detailCtrl, animated: true)
     
     }
     
@@ -128,24 +172,16 @@ class HomeViewController: BaseViewController,UITabBarControllerDelegate,UITabBar
         return 95
     }
     
-    
-
-    
     func randomInRange(range: Range<Int>) -> Int {
         let count = UInt32(range.endIndex - range.startIndex)
         return  Int(arc4random_uniform(count)) + range.startIndex
     }
     
+    // MARK: 上拉加载数据
     func loadMoreData(){
         // 1.添加数据
-        for index in 1...5{
-            let art:Article = Article()
-            art.title = "IT江湖-->\(randomInRange(1...10000))"
-            
-            self.dataSource.append(art)
-            
-        }
-        
+        self.PAGE_NUM += 1
+        loadData(self.PAGE_NUM, size: SHOW_NUM)
         
         // 2.刷新表格
         // 拿到当前的上拉刷新控件，结束刷新状态
@@ -159,8 +195,21 @@ class HomeViewController: BaseViewController,UITabBarControllerDelegate,UITabBar
 
         })
     }
-    
-    
-
-
+    // MARK: 下拉刷新数据
+    func loadNewData(){
+        // 1.添加假数据
+        self.PAGE_NUM = 0
+        loadData(self.PAGE_NUM, size: SHOW_NUM)
+        
+        // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
+        let delayInSeconds:Int64 = 1000000000 * 1
+        var popTime:dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW,delayInSeconds)
+        dispatch_after(popTime, dispatch_get_main_queue(), {
+            
+           self.atableView.reloadData()
+            
+            // 拿到当前的下拉刷新控件，结束刷新状态
+            self.atableView.header.endRefreshing()
+        });
+    }
 }

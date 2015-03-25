@@ -48,6 +48,10 @@
 		F49ED3DD1ABC4D57005BC563 /* UMSShareListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49ED3D01ABC4D56005BC563 /* UMSShareListController.xib */; };
 		F49ED3DE1ABC4D57005BC563 /* UMSocialSDKResourcesNew.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F49ED3D11ABC4D56005BC563 /* UMSocialSDKResourcesNew.bundle */; };
 		F49ED4111ABC5223005BC563 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49ED4101ABC5223005BC563 /* Define.swift */; };
+		F4A504121AC2E24200207C6D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504111AC2E24200207C6D /* Constants.swift */; };
+		F4A504141AC3051F00207C6D /* ArticleTechnologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504131AC3051F00207C6D /* ArticleTechnologyViewController.swift */; };
+		F4A504171AC3123B00207C6D /* ArticlesShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504151AC3123B00207C6D /* ArticlesShowViewController.swift */; };
+		F4A504181AC3123B00207C6D /* ArticlesShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A504161AC3123B00207C6D /* ArticlesShowViewController.xib */; };
 		F4BF9ED21AB85C8400CBF98F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BF9ED11AB85C8400CBF98F /* Article.swift */; };
 		F4BF9EE11AB8615600CBF98F /* daohang_wode_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BF9ED61AB8615600CBF98F /* daohang_wode_1.png */; };
 		F4BF9EE21AB8615600CBF98F /* daohang_wode.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BF9ED71AB8615600CBF98F /* daohang_wode.png */; };
@@ -155,6 +159,10 @@
 		F49ED3D11ABC4D56005BC563 /* UMSocialSDKResourcesNew.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResourcesNew.bundle; sourceTree = "<group>"; };
 		F49ED3D21ABC4D56005BC563 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMSocialLocalizable.strings"; sourceTree = "<group>"; };
 		F49ED4101ABC5223005BC563 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
+		F4A504111AC2E24200207C6D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F4A504131AC3051F00207C6D /* ArticleTechnologyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTechnologyViewController.swift; sourceTree = "<group>"; };
+		F4A504151AC3123B00207C6D /* ArticlesShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesShowViewController.swift; sourceTree = "<group>"; };
+		F4A504161AC3123B00207C6D /* ArticlesShowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticlesShowViewController.xib; sourceTree = "<group>"; };
 		F4BF9ED11AB85C8400CBF98F /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		F4BF9ED61AB8615600CBF98F /* daohang_wode_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daohang_wode_1.png; sourceTree = "<group>"; };
 		F4BF9ED71AB8615600CBF98F /* daohang_wode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daohang_wode.png; sourceTree = "<group>"; };
@@ -360,9 +368,12 @@
 		F49ED3481ABC4405005BC563 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F4A504151AC3123B00207C6D /* ArticlesShowViewController.swift */,
+				F4A504161AC3123B00207C6D /* ArticlesShowViewController.xib */,
 				F49ED34B1ABC47A0005BC563 /* HomeArticleTableViewCell.swift */,
 				F49ED34C1ABC47A0005BC563 /* HomeArticleTableViewCell.xib */,
 				F49ED3491ABC45A2005BC563 /* HomeViewController.swift */,
+				F4A504131AC3051F00207C6D /* ArticleTechnologyViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -440,6 +451,7 @@
 				F455422A1A81061D00B66334 /* ViewController.swift */,
 				F45542251A81061D00B66334 /* AppDelegate.swift */,
 				F455422C1A81061D00B66334 /* Main.storyboard */,
+				F4A504111AC2E24200207C6D /* Constants.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -558,6 +570,7 @@
 				F4BF9EE91AB8615600CBF98F /* icon@3x.png in Resources */,
 				F49ED3DA1ABC4D57005BC563 /* UMShareEditViewControlleriPad.xib in Resources */,
 				F49ED3D61ABC4D57005BC563 /* UMSCommentDetailController.xib in Resources */,
+				F4A504181AC3123B00207C6D /* ArticlesShowViewController.xib in Resources */,
 				F4BF9EF11AB8615F00CBF98F /* tanchuang_denglu_weibo@2x.png in Resources */,
 				F4BF9EE11AB8615600CBF98F /* daohang_wode_1.png in Resources */,
 				F45542331A81061D00B66334 /* LaunchScreen.xib in Resources */,
@@ -654,8 +667,10 @@
 				F49AC4E41AC05129008F925D /* UIScrollView+MJExtension.m in Sources */,
 				F49AC4DE1AC05129008F925D /* MJRefreshFooter.m in Sources */,
 				F49AC4DF1AC05129008F925D /* MJRefreshGifFooter.m in Sources */,
+				F4A504171AC3123B00207C6D /* ArticlesShowViewController.swift in Sources */,
 				F49AC4E11AC05129008F925D /* MJRefreshHeader.m in Sources */,
 				F4BF9ED21AB85C8400CBF98F /* Article.swift in Sources */,
+				F4A504141AC3051F00207C6D /* ArticleTechnologyViewController.swift in Sources */,
 				F49ED4111ABC5223005BC563 /* Define.swift in Sources */,
 				F455422B1A81061D00B66334 /* ViewController.swift in Sources */,
 				F49AC4DD1AC05129008F925D /* MJRefreshConst.m in Sources */,
@@ -663,6 +678,7 @@
 				F49AC4DC1AC05129008F925D /* MJRefreshComponent.m in Sources */,
 				F45542291A81061D00B66334 /* itjh_ios.xcdatamodeld in Sources */,
 				F49AC4E51AC05129008F925D /* UIScrollView+MJRefresh.m in Sources */,
+				F4A504121AC2E24200207C6D /* Constants.swift in Sources */,
 				F49AC4E61AC05129008F925D /* UIView+MJExtension.m in Sources */,
 				F45542261A81061D00B66334 /* AppDelegate.swift in Sources */,
 				F49ED34A1ABC45A2005BC563 /* HomeViewController.swift in Sources */,
