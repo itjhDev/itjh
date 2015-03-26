@@ -22,7 +22,14 @@ var GET_ARTICLE_CATEGORY = "http://m.itjh.com.cn:8080/mitjh/ArticleServer/queryA
 // MARK: 用户接口
 
 //第三方用户登录接口 POST方式
-var login = "http://m.itjh.com.cn:8080/mitjh/PeopleServer/saveUser"
+var login = "http://m.itjh.com.cn:8080/mitjh/PeopleServer/saveUser/"
 
 //用户收藏文章  POST方式
 var userCollection = "http://m.itjh.com.cn:8080/mitjh/poas/userCollectionArticle"
+
+//登录状态
+var loginState:Bool  = false
+//微博用户信息
+var userWeibo:UserWeibo = UserWeibo()
+
+

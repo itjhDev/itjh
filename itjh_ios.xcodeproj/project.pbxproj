@@ -15,6 +15,9 @@
 		F45542301A81061D00B66334 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F455422F1A81061D00B66334 /* Images.xcassets */; };
 		F45542331A81061D00B66334 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45542311A81061D00B66334 /* LaunchScreen.xib */; };
 		F455423F1A81061D00B66334 /* itjh_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455423E1A81061D00B66334 /* itjh_iosTests.swift */; };
+		F48782AD1AC46C82001CDBD2 /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48782AB1AC46C82001CDBD2 /* UserLoginViewController.swift */; };
+		F48782AE1AC46C82001CDBD2 /* UserLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48782AC1AC46C82001CDBD2 /* UserLoginViewController.xib */; };
+		F48782B41AC481E6001CDBD2 /* UserWeibo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48782B31AC481E6001CDBD2 /* UserWeibo.swift */; };
 		F49AC4B81AC04C96008F925D /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F49AC49C1AC04C96008F925D /* libSocialSina.a */; };
 		F49AC4BD1AC04C96008F925D /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F49AC4A71AC04C96008F925D /* libSocialWechat.a */; };
 		F49AC4BE1AC04C96008F925D /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F49AC4A81AC04C96008F925D /* libWeChatSDK.a */; };
@@ -50,7 +53,6 @@
 		F49ED4111ABC5223005BC563 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49ED4101ABC5223005BC563 /* Define.swift */; };
 		F4A417231AC4325600FE6360 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A417221AC4325600FE6360 /* UserViewController.swift */; };
 		F4A417291AC4477E00FE6360 /* user.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4A417281AC4477E00FE6360 /* user.plist */; };
-		F4A4172D1AC44FD900FE6360 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4172C1AC44FD900FE6360 /* SearchResultsController.swift */; };
 		F4A504121AC2E24200207C6D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504111AC2E24200207C6D /* Constants.swift */; };
 		F4A504141AC3051F00207C6D /* ArticleTechnologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504131AC3051F00207C6D /* ArticleTechnologyViewController.swift */; };
 		F4A504171AC3123B00207C6D /* ArticlesShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504151AC3123B00207C6D /* ArticlesShowViewController.swift */; };
@@ -101,6 +103,9 @@
 		F455423D1A81061D00B66334 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F455423E1A81061D00B66334 /* itjh_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itjh_iosTests.swift; sourceTree = "<group>"; };
 		F456AF801AB0734200605B9B /* itjh_ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "itjh_ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		F48782AB1AC46C82001CDBD2 /* UserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
+		F48782AC1AC46C82001CDBD2 /* UserLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserLoginViewController.xib; sourceTree = "<group>"; };
+		F48782B31AC481E6001CDBD2 /* UserWeibo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserWeibo.swift; sourceTree = "<group>"; };
 		F49AC49C1AC04C96008F925D /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
 		F49AC49D1AC04C96008F925D /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSinaHandler.h; sourceTree = "<group>"; };
 		F49AC4A71AC04C96008F925D /* libSocialWechat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWechat.a; sourceTree = "<group>"; };
@@ -165,7 +170,6 @@
 		F49ED4101ABC5223005BC563 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		F4A417221AC4325600FE6360 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		F4A417281AC4477E00FE6360 /* user.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = user.plist; sourceTree = "<group>"; };
-		F4A4172C1AC44FD900FE6360 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		F4A504111AC2E24200207C6D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F4A504131AC3051F00207C6D /* ArticleTechnologyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTechnologyViewController.swift; sourceTree = "<group>"; };
 		F4A504151AC3123B00207C6D /* ArticlesShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesShowViewController.swift; sourceTree = "<group>"; };
@@ -377,7 +381,6 @@
 		F49ED3481ABC4405005BC563 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F4A4172C1AC44FD900FE6360 /* SearchResultsController.swift */,
 				F4A504151AC3123B00207C6D /* ArticlesShowViewController.swift */,
 				F4A504161AC3123B00207C6D /* ArticlesShowViewController.xib */,
 				F49ED34B1ABC47A0005BC563 /* HomeArticleTableViewCell.swift */,
@@ -386,6 +389,8 @@
 				F4A504131AC3051F00207C6D /* ArticleTechnologyViewController.swift */,
 				F4A504191AC3240A00207C6D /* ArticleInterestingViewController.swift */,
 				F4A417221AC4325600FE6360 /* UserViewController.swift */,
+				F48782AB1AC46C82001CDBD2 /* UserLoginViewController.swift */,
+				F48782AC1AC46C82001CDBD2 /* UserLoginViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -451,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				F4BF9ED11AB85C8400CBF98F /* Article.swift */,
+				F48782B31AC481E6001CDBD2 /* UserWeibo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -595,6 +601,7 @@
 				F4BF9EE51AB8615600CBF98F /* default_showPic@3x.png in Resources */,
 				F4A417291AC4477E00FE6360 /* user.plist in Resources */,
 				F4BF9EF41AB8615F00CBF98F /* icon152.png in Resources */,
+				F48782AE1AC46C82001CDBD2 /* UserLoginViewController.xib in Resources */,
 				F49AC4DB1AC05129008F925D /* MJRefresh.bundle in Resources */,
 				F45542301A81061D00B66334 /* Images.xcassets in Resources */,
 				F4BF9EEA1AB8615600CBF98F /* itjh_lanuch@3x.png in Resources */,
@@ -675,6 +682,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F49AC4E31AC05129008F925D /* MJRefreshLegendHeader.m in Sources */,
+				F48782AD1AC46C82001CDBD2 /* UserLoginViewController.swift in Sources */,
 				F4A417231AC4325600FE6360 /* UserViewController.swift in Sources */,
 				F49ED3471ABC438D005BC563 /* BaseViewController.swift in Sources */,
 				F49AC4E21AC05129008F925D /* MJRefreshLegendFooter.m in Sources */,
@@ -684,6 +692,7 @@
 				F4A504171AC3123B00207C6D /* ArticlesShowViewController.swift in Sources */,
 				F49AC4E11AC05129008F925D /* MJRefreshHeader.m in Sources */,
 				F4BF9ED21AB85C8400CBF98F /* Article.swift in Sources */,
+				F48782B41AC481E6001CDBD2 /* UserWeibo.swift in Sources */,
 				F4A504141AC3051F00207C6D /* ArticleTechnologyViewController.swift in Sources */,
 				F49ED4111ABC5223005BC563 /* Define.swift in Sources */,
 				F455422B1A81061D00B66334 /* ViewController.swift in Sources */,
@@ -692,7 +701,6 @@
 				F49AC4DC1AC05129008F925D /* MJRefreshComponent.m in Sources */,
 				F4A5041A1AC3240A00207C6D /* ArticleInterestingViewController.swift in Sources */,
 				F45542291A81061D00B66334 /* itjh_ios.xcdatamodeld in Sources */,
-				F4A4172D1AC44FD900FE6360 /* SearchResultsController.swift in Sources */,
 				F49AC4E51AC05129008F925D /* UIScrollView+MJRefresh.m in Sources */,
 				F4A504121AC2E24200207C6D /* Constants.swift in Sources */,
 				F49AC4E61AC05129008F925D /* UIView+MJExtension.m in Sources */,

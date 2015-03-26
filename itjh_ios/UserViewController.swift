@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate{
 
     @IBOutlet weak var myTableView: UITableView!
@@ -64,6 +65,8 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         let ise = indexPath.section
         let irow = indexPath.row
         
+        
+        
         if ise != 2{
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
 
@@ -73,8 +76,23 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         let nameSection = names[key]!
         cell.textLabel?.text = nameSection[indexPath.row]
         
-       
-               return cell
+        println("登录状态：\(loginState)")
+        if loginState{
+            if indexPath.section == 0 && indexPath.row == 0{
+                    cell.textLabel?.text = userWeibo.nickname
+            }
+        
+        }
+        
+        return cell
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+    
+        if loginState{
+            myTableView.reloadData()
+        }
+        
     }
 
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
@@ -89,6 +107,11 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
                 
             case 0:
                 println("登录")
+                
+               
+                var detailCtrl = UserLoginViewController(nibName: "UserLoginViewController", bundle: nil);
+                detailCtrl.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(detailCtrl, animated: true)
             case 1:
                 println("我的收藏")
             default:
@@ -113,8 +136,9 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
                 
             case 0:
                 println("清除缓存")
+                
             case 1:
-                println("检查更新")
+                println("关注我们")
             default:
                 println("关于我们")
                 
