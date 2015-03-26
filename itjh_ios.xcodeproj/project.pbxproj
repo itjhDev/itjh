@@ -48,6 +48,9 @@
 		F49ED3DD1ABC4D57005BC563 /* UMSShareListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49ED3D01ABC4D56005BC563 /* UMSShareListController.xib */; };
 		F49ED3DE1ABC4D57005BC563 /* UMSocialSDKResourcesNew.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F49ED3D11ABC4D56005BC563 /* UMSocialSDKResourcesNew.bundle */; };
 		F49ED4111ABC5223005BC563 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49ED4101ABC5223005BC563 /* Define.swift */; };
+		F4A417231AC4325600FE6360 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A417221AC4325600FE6360 /* UserViewController.swift */; };
+		F4A417291AC4477E00FE6360 /* user.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4A417281AC4477E00FE6360 /* user.plist */; };
+		F4A4172D1AC44FD900FE6360 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4172C1AC44FD900FE6360 /* SearchResultsController.swift */; };
 		F4A504121AC2E24200207C6D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504111AC2E24200207C6D /* Constants.swift */; };
 		F4A504141AC3051F00207C6D /* ArticleTechnologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504131AC3051F00207C6D /* ArticleTechnologyViewController.swift */; };
 		F4A504171AC3123B00207C6D /* ArticlesShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504151AC3123B00207C6D /* ArticlesShowViewController.swift */; };
@@ -160,6 +163,9 @@
 		F49ED3D11ABC4D56005BC563 /* UMSocialSDKResourcesNew.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResourcesNew.bundle; sourceTree = "<group>"; };
 		F49ED3D21ABC4D56005BC563 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMSocialLocalizable.strings"; sourceTree = "<group>"; };
 		F49ED4101ABC5223005BC563 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
+		F4A417221AC4325600FE6360 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		F4A417281AC4477E00FE6360 /* user.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = user.plist; sourceTree = "<group>"; };
+		F4A4172C1AC44FD900FE6360 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		F4A504111AC2E24200207C6D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F4A504131AC3051F00207C6D /* ArticleTechnologyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTechnologyViewController.swift; sourceTree = "<group>"; };
 		F4A504151AC3123B00207C6D /* ArticlesShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesShowViewController.swift; sourceTree = "<group>"; };
@@ -288,6 +294,7 @@
 		F456AF7A1AB0706A00605B9B /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				F4A417281AC4477E00FE6360 /* user.plist */,
 				F4BF9ED51AB8614900CBF98F /* images */,
 				F45542311A81061D00B66334 /* LaunchScreen.xib */,
 				F45542271A81061D00B66334 /* itjh_ios.xcdatamodeld */,
@@ -370,6 +377,7 @@
 		F49ED3481ABC4405005BC563 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F4A4172C1AC44FD900FE6360 /* SearchResultsController.swift */,
 				F4A504151AC3123B00207C6D /* ArticlesShowViewController.swift */,
 				F4A504161AC3123B00207C6D /* ArticlesShowViewController.xib */,
 				F49ED34B1ABC47A0005BC563 /* HomeArticleTableViewCell.swift */,
@@ -377,6 +385,7 @@
 				F49ED3491ABC45A2005BC563 /* HomeViewController.swift */,
 				F4A504131AC3051F00207C6D /* ArticleTechnologyViewController.swift */,
 				F4A504191AC3240A00207C6D /* ArticleInterestingViewController.swift */,
+				F4A417221AC4325600FE6360 /* UserViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -584,6 +593,7 @@
 				F49ED3DC1ABC4D57005BC563 /* UMSnsAccountViewController.xib in Resources */,
 				F49ED3D81ABC4D57005BC563 /* UMSCommentInputControlleriPad.xib in Resources */,
 				F4BF9EE51AB8615600CBF98F /* default_showPic@3x.png in Resources */,
+				F4A417291AC4477E00FE6360 /* user.plist in Resources */,
 				F4BF9EF41AB8615F00CBF98F /* icon152.png in Resources */,
 				F49AC4DB1AC05129008F925D /* MJRefresh.bundle in Resources */,
 				F45542301A81061D00B66334 /* Images.xcassets in Resources */,
@@ -665,6 +675,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F49AC4E31AC05129008F925D /* MJRefreshLegendHeader.m in Sources */,
+				F4A417231AC4325600FE6360 /* UserViewController.swift in Sources */,
 				F49ED3471ABC438D005BC563 /* BaseViewController.swift in Sources */,
 				F49AC4E21AC05129008F925D /* MJRefreshLegendFooter.m in Sources */,
 				F49AC4E41AC05129008F925D /* UIScrollView+MJExtension.m in Sources */,
@@ -681,6 +692,7 @@
 				F49AC4DC1AC05129008F925D /* MJRefreshComponent.m in Sources */,
 				F4A5041A1AC3240A00207C6D /* ArticleInterestingViewController.swift in Sources */,
 				F45542291A81061D00B66334 /* itjh_ios.xcdatamodeld in Sources */,
+				F4A4172D1AC44FD900FE6360 /* SearchResultsController.swift in Sources */,
 				F49AC4E51AC05129008F925D /* UIScrollView+MJRefresh.m in Sources */,
 				F4A504121AC2E24200207C6D /* Constants.swift in Sources */,
 				F49AC4E61AC05129008F925D /* UIView+MJExtension.m in Sources */,

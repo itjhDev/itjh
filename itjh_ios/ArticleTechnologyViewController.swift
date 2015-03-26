@@ -27,7 +27,6 @@ class ArticleTechnologyViewController: BaseViewController {
         self.atableView.registerNib(nib, forCellReuseIdentifier: identifier)
         self.navigationTitle.text = "技术"
         
-        self.loadNewData()
         
         self.atableView.addLegendHeaderWithRefreshingBlock { () -> Void in
             self.loadNewData()
@@ -134,7 +133,7 @@ class ArticleTechnologyViewController: BaseViewController {
     func loadMoreData(){
         // 1.添加数据
         self.PAGE_NUM += 1
-        loadData(self.PAGE_NUM, size: SHOW_NUM)
+        loadData(currentArticleData.count, size: SHOW_NUM)
         
         // 2.刷新表格
         // 拿到当前的上拉刷新控件，结束刷新状态

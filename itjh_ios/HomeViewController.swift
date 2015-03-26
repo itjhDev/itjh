@@ -35,8 +35,6 @@ class HomeViewController: BaseViewController  {
         
         self.navigationTitle.text = "IT江湖"
         
-        self.loadNewData()
-
         self.atableView.addLegendHeaderWithRefreshingBlock { () -> Void in
             self.loadNewData()
            

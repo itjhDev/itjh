@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        NSThread.sleepForTimeInterval(3.0)
          //设置状态栏为白色
         UINavigationBar.appearance().barStyle = UIBarStyle.Black
         //设置微信key
