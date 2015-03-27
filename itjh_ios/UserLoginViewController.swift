@@ -81,6 +81,14 @@ class UserLoginViewController: UIViewController {
                         userWeibo.nickname = username
                         userWeibo.user_client_id = usid
                         
+                        //保存当前用户信息到缓存中
+                        userDefaults.setObject(username, forKey: "username")
+                        userDefaults.setObject(icon, forKey: "face")
+                        userDefaults.setObject(usid, forKey: "user_client_id")
+                        userDefaults.setObject(1, forKey: "platform_id")
+
+                        userDefaults.synchronize()
+                        
                         SCLAlertView().showSuccess("登录成功", subTitle: "恭喜你登录成功", closeButtonTitle: "确定")
 
                         loginState = true

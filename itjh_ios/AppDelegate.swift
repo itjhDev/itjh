@@ -29,8 +29,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UITabBar.appearance().backgroundColor =  UIColor(red: 40/255.0, green: 132/255.0, blue: 200/255.0, alpha: 0.3)
         
+        //检测用户是否登录
+        if userDefaults.stringForKey("user_client_id") != nil{
+            loginState = true
+            userWeibo.platform_id = 1
+            userWeibo.face = userDefaults.stringForKey("face")!
+            userWeibo.nickname = userDefaults.stringForKey("username")!
+            userWeibo.user_client_id = userDefaults.stringForKey("user_client_id")!
+            
 
-        
+        }
         
         return true
     }

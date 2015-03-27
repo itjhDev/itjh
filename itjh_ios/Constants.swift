@@ -31,5 +31,9 @@ var userCollection = "http://m.itjh.com.cn:8080/mitjh/poas/userCollectionArticle
 var loginState:Bool  = false
 //微博用户信息
 var userWeibo:UserWeibo = UserWeibo()
+//缓存用户信息
+//缓存用户信息
+var userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+
 
 

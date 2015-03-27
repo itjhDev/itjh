@@ -23,7 +23,13 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationTitle.text = "我的江湖"
+        if loginState{
+            self.navigationTitle.text = "我的江湖"
+
+        }else{
+            self.navigationTitle.text = "登录"
+
+        }
 
         myTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: sectionsTableIdentifier)
         
@@ -74,7 +80,9 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         
         let key = keys[indexPath.section]
         let nameSection = names[key]!
+        cell.textLabel?.font = UIFont(name: "HiraKakuProN-W3", size: 13)
         cell.textLabel?.text = nameSection[indexPath.row]
+        
         
         println("登录状态：\(loginState)")
         if loginState{
