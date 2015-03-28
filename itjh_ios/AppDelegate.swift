@@ -36,8 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             userWeibo.face = userDefaults.stringForKey("face")!
             userWeibo.nickname = userDefaults.stringForKey("username")!
             userWeibo.user_client_id = userDefaults.stringForKey("user_client_id")!
-            
-
         }
         
         return true

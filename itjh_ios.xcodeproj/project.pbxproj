@@ -18,6 +18,10 @@
 		F48782AD1AC46C82001CDBD2 /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48782AB1AC46C82001CDBD2 /* UserLoginViewController.swift */; };
 		F48782AE1AC46C82001CDBD2 /* UserLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48782AC1AC46C82001CDBD2 /* UserLoginViewController.xib */; };
 		F48782B41AC481E6001CDBD2 /* UserWeibo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48782B31AC481E6001CDBD2 /* UserWeibo.swift */; };
+		F492AD751AC65E0A00F5635F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F492AD741AC65E0A00F5635F /* UIColorExtension.swift */; };
+		F492AD7D1AC685B300F5635F /* UIViewController+ScrollingNavbar.m in Sources */ = {isa = PBXBuildFile; fileRef = F492AD7C1AC685B300F5635F /* UIViewController+ScrollingNavbar.m */; };
+		F492AD8D1AC6BB8800F5635F /* ArticlesShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F492AD8B1AC6BB8800F5635F /* ArticlesShowViewController.xib */; };
+		F492AD8F1AC6BBD800F5635F /* ArticlesShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F492AD8E1AC6BBD800F5635F /* ArticlesShowViewController.swift */; };
 		F49AC4B81AC04C96008F925D /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F49AC49C1AC04C96008F925D /* libSocialSina.a */; };
 		F49AC4BD1AC04C96008F925D /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F49AC4A71AC04C96008F925D /* libSocialWechat.a */; };
 		F49AC4BE1AC04C96008F925D /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F49AC4A81AC04C96008F925D /* libWeChatSDK.a */; };
@@ -55,8 +59,6 @@
 		F4A417291AC4477E00FE6360 /* user.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4A417281AC4477E00FE6360 /* user.plist */; };
 		F4A504121AC2E24200207C6D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504111AC2E24200207C6D /* Constants.swift */; };
 		F4A504141AC3051F00207C6D /* ArticleTechnologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504131AC3051F00207C6D /* ArticleTechnologyViewController.swift */; };
-		F4A504171AC3123B00207C6D /* ArticlesShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504151AC3123B00207C6D /* ArticlesShowViewController.swift */; };
-		F4A504181AC3123B00207C6D /* ArticlesShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A504161AC3123B00207C6D /* ArticlesShowViewController.xib */; };
 		F4A5041A1AC3240A00207C6D /* ArticleInterestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504191AC3240A00207C6D /* ArticleInterestingViewController.swift */; };
 		F4BF9ED21AB85C8400CBF98F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BF9ED11AB85C8400CBF98F /* Article.swift */; };
 		F4BF9EE11AB8615600CBF98F /* daohang_wode_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BF9ED61AB8615600CBF98F /* daohang_wode_1.png */; };
@@ -106,6 +108,11 @@
 		F48782AB1AC46C82001CDBD2 /* UserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
 		F48782AC1AC46C82001CDBD2 /* UserLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserLoginViewController.xib; sourceTree = "<group>"; };
 		F48782B31AC481E6001CDBD2 /* UserWeibo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserWeibo.swift; sourceTree = "<group>"; };
+		F492AD741AC65E0A00F5635F /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		F492AD7B1AC685B300F5635F /* UIViewController+ScrollingNavbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ScrollingNavbar.h"; sourceTree = "<group>"; };
+		F492AD7C1AC685B300F5635F /* UIViewController+ScrollingNavbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ScrollingNavbar.m"; sourceTree = "<group>"; };
+		F492AD8B1AC6BB8800F5635F /* ArticlesShowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticlesShowViewController.xib; sourceTree = "<group>"; };
+		F492AD8E1AC6BBD800F5635F /* ArticlesShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesShowViewController.swift; sourceTree = "<group>"; };
 		F49AC49C1AC04C96008F925D /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
 		F49AC49D1AC04C96008F925D /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSinaHandler.h; sourceTree = "<group>"; };
 		F49AC4A71AC04C96008F925D /* libSocialWechat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWechat.a; sourceTree = "<group>"; };
@@ -172,8 +179,6 @@
 		F4A417281AC4477E00FE6360 /* user.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = user.plist; sourceTree = "<group>"; };
 		F4A504111AC2E24200207C6D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F4A504131AC3051F00207C6D /* ArticleTechnologyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTechnologyViewController.swift; sourceTree = "<group>"; };
-		F4A504151AC3123B00207C6D /* ArticlesShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesShowViewController.swift; sourceTree = "<group>"; };
-		F4A504161AC3123B00207C6D /* ArticlesShowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticlesShowViewController.xib; sourceTree = "<group>"; };
 		F4A504191AC3240A00207C6D /* ArticleInterestingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleInterestingViewController.swift; sourceTree = "<group>"; };
 		F4BF9ED11AB85C8400CBF98F /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		F4BF9ED61AB8615600CBF98F /* daohang_wode_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daohang_wode_1.png; sourceTree = "<group>"; };
@@ -307,6 +312,15 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
+		F492AD7A1AC685B300F5635F /* AMScrollingNavbar */ = {
+			isa = PBXGroup;
+			children = (
+				F492AD7B1AC685B300F5635F /* UIViewController+ScrollingNavbar.h */,
+				F492AD7C1AC685B300F5635F /* UIViewController+ScrollingNavbar.m */,
+			);
+			path = AMScrollingNavbar;
+			sourceTree = "<group>";
+		};
 		F49AC4911AC04C96008F925D /* UMSocial_Sdk_Extra_Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,8 +395,8 @@
 		F49ED3481ABC4405005BC563 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F4A504151AC3123B00207C6D /* ArticlesShowViewController.swift */,
-				F4A504161AC3123B00207C6D /* ArticlesShowViewController.xib */,
+				F492AD8E1AC6BBD800F5635F /* ArticlesShowViewController.swift */,
+				F492AD8B1AC6BB8800F5635F /* ArticlesShowViewController.xib */,
 				F49ED34B1ABC47A0005BC563 /* HomeArticleTableViewCell.swift */,
 				F49ED34C1ABC47A0005BC563 /* HomeArticleTableViewCell.xib */,
 				F49ED3491ABC45A2005BC563 /* HomeViewController.swift */,
@@ -398,6 +412,8 @@
 		F49ED34F1ABC4C0E005BC563 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F492AD7A1AC685B300F5635F /* AMScrollingNavbar */,
+				F492AD741AC65E0A00F5635F /* UIColorExtension.swift */,
 				F49AC4C21AC05129008F925D /* MJRefresh */,
 				F49ED3B71ABC4D56005BC563 /* UMSocial_Sdk_4.2 */,
 			);
@@ -588,7 +604,6 @@
 				F4BF9EE91AB8615600CBF98F /* icon@3x.png in Resources */,
 				F49ED3DA1ABC4D57005BC563 /* UMShareEditViewControlleriPad.xib in Resources */,
 				F49ED3D61ABC4D57005BC563 /* UMSCommentDetailController.xib in Resources */,
-				F4A504181AC3123B00207C6D /* ArticlesShowViewController.xib in Resources */,
 				F4BF9EF11AB8615F00CBF98F /* tanchuang_denglu_weibo@2x.png in Resources */,
 				F4BF9EE11AB8615600CBF98F /* daohang_wode_1.png in Resources */,
 				F45542331A81061D00B66334 /* LaunchScreen.xib in Resources */,
@@ -603,6 +618,7 @@
 				F4BF9EF41AB8615F00CBF98F /* icon152.png in Resources */,
 				F48782AE1AC46C82001CDBD2 /* UserLoginViewController.xib in Resources */,
 				F49AC4DB1AC05129008F925D /* MJRefresh.bundle in Resources */,
+				F492AD8D1AC6BB8800F5635F /* ArticlesShowViewController.xib in Resources */,
 				F45542301A81061D00B66334 /* Images.xcassets in Resources */,
 				F4BF9EEA1AB8615600CBF98F /* itjh_lanuch@3x.png in Resources */,
 				F4BF9EF51AB8615F00CBF98F /* icon120.png in Resources */,
@@ -689,12 +705,14 @@
 				F49AC4E41AC05129008F925D /* UIScrollView+MJExtension.m in Sources */,
 				F49AC4DE1AC05129008F925D /* MJRefreshFooter.m in Sources */,
 				F49AC4DF1AC05129008F925D /* MJRefreshGifFooter.m in Sources */,
-				F4A504171AC3123B00207C6D /* ArticlesShowViewController.swift in Sources */,
 				F49AC4E11AC05129008F925D /* MJRefreshHeader.m in Sources */,
 				F4BF9ED21AB85C8400CBF98F /* Article.swift in Sources */,
 				F48782B41AC481E6001CDBD2 /* UserWeibo.swift in Sources */,
+				F492AD7D1AC685B300F5635F /* UIViewController+ScrollingNavbar.m in Sources */,
+				F492AD8F1AC6BBD800F5635F /* ArticlesShowViewController.swift in Sources */,
 				F4A504141AC3051F00207C6D /* ArticleTechnologyViewController.swift in Sources */,
 				F49ED4111ABC5223005BC563 /* Define.swift in Sources */,
+				F492AD751AC65E0A00F5635F /* UIColorExtension.swift in Sources */,
 				F455422B1A81061D00B66334 /* ViewController.swift in Sources */,
 				F49AC4DD1AC05129008F925D /* MJRefreshConst.m in Sources */,
 				F49ED34D1ABC47A0005BC563 /* HomeArticleTableViewCell.swift in Sources */,

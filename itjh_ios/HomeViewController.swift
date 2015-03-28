@@ -58,13 +58,7 @@ class HomeViewController: BaseViewController  {
         //接口url
         var articleUrl = url + "\(offset)/\(size)"
         
-        if self.PAGE_NUM == 0{
-            if !currentArticleData.isEmpty{
-                 self.currentArticleData.removeAll(keepCapacity: false)
-            }
-           
-//            self.atableView.reloadData()
-        }
+      
         
         // 请求数据
         Alamofire.request(.GET, articleUrl).responseJSON { (_, _, JSON_DATA, _) -> Void in
@@ -72,7 +66,12 @@ class HomeViewController: BaseViewController  {
                 SCLAlertView().showWarning("温馨提示", subTitle:"您的网络在开小差,赶紧制服它,精彩的文章在等你.", closeButtonTitle:"去制服")
                 return
             }else{
-                
+                if self.PAGE_NUM == 0{
+                    if !self.currentArticleData.isEmpty{
+                        self.currentArticleData.removeAll(keepCapacity: false)
+                    }
+                    
+                }
                 let data = JSON(JSON_DATA!)
                 let articlesArray = data["content"].arrayValue
                 for currentArticle in articlesArray{

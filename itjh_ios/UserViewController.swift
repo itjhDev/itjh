@@ -80,7 +80,7 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         
         let key = keys[indexPath.section]
         let nameSection = names[key]!
-        cell.textLabel?.font = UIFont(name: "HiraKakuProN-W3", size: 13)
+        cell.textLabel?.font = UIFont(name: "HiraKakuProN-W3", size: 14)
         cell.textLabel?.text = nameSection[indexPath.row]
         
         
@@ -115,8 +115,6 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
                 
             case 0:
                 println("登录")
-                
-               
                 var detailCtrl = UserLoginViewController(nibName: "UserLoginViewController", bundle: nil);
                 detailCtrl.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(detailCtrl, animated: true)

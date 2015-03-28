@@ -20,9 +20,7 @@ class UserLoginViewController: UIViewController {
         let snsPlatform:UMSocialSnsPlatform = UMSocialSnsPlatformManager.getSocialPlatformWithName(UMShareToSina)
         var  response:UMSocialResponseEntity
         snsPlatform.loginClickHandler(self,UMSocialControllerService.defaultControllerService(),true,{(response :UMSocialResponseEntity!) ->Void in
-            
-            println(response.data)
-            
+                        
             var sainUser = response.data as NSDictionary
             var jsonre = JSON(sainUser["sina"]!)
             
@@ -39,43 +37,28 @@ class UserLoginViewController: UIViewController {
             icon = jsonre["icon"].string!
             
             if jsonre != nil{
-                
                 let parameters = [
                     "nickname": username,
                     "face":icon,
                     "user_client_id": usid,
                     "platform_id": "1",
                 ]
-                
-                println(parameters)
-                
-                
+               
                 Alamofire.request(.POST, login, parameters: parameters).responseJSON { (_, _, JSON_DATA, _) in
                     
                     if JSON_DATA == nil{
                         SCLAlertView().showWarning("温馨提示", subTitle:"网络有点问题,注册失败,请稍后重试!", closeButtonTitle:"ok")
                         return
                     }else{
-                        println(JSON_DATA)
+
                         let data = JSON(JSON_DATA!)
-                        
                         //用户信息
-                        println("JSON数据\(data)")
+                        //println("JSON数据\(data)")
                      
                         let peopleDict = data["people"].dictionary
                         
-                        println(peopleDict?.keys.array)
-                      
-                        
-                        
-//                        var people = data[2]
-//                        
-//                        
-//                        
-//                        
-//                        
-//                        println(people)
-                        
+                        //println(peopleDict?.keys.array)
+                    
                         userWeibo.platform_id = 1
                         userWeibo.face = icon
                         userWeibo.nickname = username
@@ -90,13 +73,10 @@ class UserLoginViewController: UIViewController {
                         userDefaults.synchronize()
                         
                         SCLAlertView().showSuccess("登录成功", subTitle: "恭喜你登录成功", closeButtonTitle: "确定")
-
                         loginState = true
-                        
                         self.navigationController?.popToRootViewControllerAnimated(true)
 
                     }
-                    
                 }
             }else{
                 SCLAlertView().showError("登录失败", subTitle: "登录失败", closeButtonTitle: "确定")

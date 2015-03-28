@@ -12,11 +12,12 @@ import Alamofire
 import SCLAlertView
 import SwiftyJSON
 
-class ArticlesShowViewController: UIViewController {
+class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
 
     @IBOutlet weak var atoolbar: UIToolbar!
     
     @IBOutlet var awebview: UIWebView!
+
     
     var atitle = ""
     
@@ -31,28 +32,74 @@ class ArticlesShowViewController: UIViewController {
     var artID:Int = 0
     
     var trashItem:UIBarButtonItem{
-        return UIBarButtonItem(barButtonSystemItem: .Reply, target: self, action: "trashClick:")
+        let trashItem = UIBarButtonItem()
+        trashItem.image = UIImage(named: "back_icon")
+        trashItem.tintColor = UIColor(rgba: "#8A8A8A")
+        trashItem.action = "trashClick:"
+        return trashItem
+    }
+    // 返回
+    func trashClick(barItme:UIBarButtonItem){
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
-    func trashClick(barItme:UIBarButtonItem){
-        println("点击了返回")
-        self.navigationController?.popToRootViewControllerAnimated(true)
+    // 赞按钮
+    var praisedItem:UIBarButtonItem{
+      
+        
+        let praisedItem = UIBarButtonItem()
+        praisedItem.image = UIImage(named: "good_icon_default")
+        praisedItem.tintColor = UIColor(rgba: "#8A8A8A")
+        
+        praisedItem.action = "praisedClick:"
+        
+        
+        return praisedItem
+
+    }
+    
+    // 赞方法
+    func praisedClick(barItme:UIBarButtonItem){
+        println("点击了赞")
+        barItme.image = UIImage(named: "good_icon_pressed")
+        barItme.tintColor = UIColor(rgba: "#3C8ACB")
     }
     
     var spaceItem:UIBarButtonItem{
         return UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
     }
     
-    var shareItem:UIBarButtonItem{
-        return UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "shareClick:")
+    // 收藏按钮
+    var collectItem:UIBarButtonItem{
+        let baritem = UIBarButtonItem()
+        baritem.image = UIImage(named: "store_icon_default")
+        baritem.tintColor = UIColor(rgba: "#8A8A8A")
+        
+        baritem.action = "collectClick:"
+        
+
+        return baritem
     }
-    
+    // 收藏方法
+    func collectClick(barItme:UIBarButtonItem){
+        println("点击了收藏")
+        barItme.image = UIImage(named: "store_icon_pressed")
+        barItme.tintColor = UIColor(rgba: "#3C8ACB")
+
+       
+    }
+    // 分享按钮
+    var shareItem:UIBarButtonItem{
+         let shareItem = UIBarButtonItem()
+        shareItem.image = UIImage(named: "share_icon_default")
+        shareItem.tintColor = UIColor(rgba: "#8A8A8A")
+        shareItem.action = "shareClick:"
+        return shareItem
+    }
+    // 分享方法
     func shareClick(barItme:UIBarButtonItem){
         println("点击了分享")
-        
-        println("图片地址："+aimg)
-        var url = NSURL(string: aimg)
-        var saimg = UIImage(data: NSData(contentsOfURL: url!)!)
+        var saimg = UIImage(data: NSData(contentsOfURL: NSURL(string: aimg)!)!)
         UMSocialData.defaultData().extConfig.title = atitle
         
         UMSocialWechatHandler.setWXAppId("wxf17bc88ea6076de8", appSecret: "50f8da2f5a4756526b4a0b6574e2650a", url: shareUrl + "\(artID).html")
@@ -68,13 +115,14 @@ class ArticlesShowViewController: UIViewController {
 
     //加载toolbar
     func configToolbar(){
+      
+        
         let itmes = [
-            trashItem,spaceItem,shareItem
+            trashItem,spaceItem,praisedItem,spaceItem,collectItem,spaceItem,shareItem
             
         ]
-        atoolbar .setItems(itmes, animated: true)
-        atoolbar.barTintColor = UIColor.whiteColor()
-        atoolbar.backgroundColor = UIColor.clearColor()
+        atoolbar.setItems(itmes, animated: false)
+        atoolbar.setBackgroundImage(UIImage(named: "toolbar_bg"), forToolbarPosition: UIBarPosition.Bottom, barMetrics: UIBarMetrics.Default)
     }
 
     override func viewDidLoad() {
@@ -84,7 +132,7 @@ class ArticlesShowViewController: UIViewController {
         let screenHeight:CGFloat = def.screenHeight()
         let screenWidth:CGFloat = def.screenWidth()
         
-        UINavigationBar.appearance().frame = CGRect(x:0.0,y:20.0,width:screenWidth,height:screenHeight-20)
+//        UINavigationBar.appearance().frame = CGRect(x:0.0,y:20.0,width:screenWidth,height:screenHeight-20)
         
         //设置Nav
         if iOS7==true {
@@ -99,7 +147,6 @@ class ArticlesShowViewController: UIViewController {
         self.navigationItem.titleView = navigationTitle
         
 
-        
         configToolbar()
         loadData()
         // Do any additional setup after loading the view.
@@ -116,63 +163,60 @@ class ArticlesShowViewController: UIViewController {
         //请求 数据
         Alamofire.request(.GET, articleUrl)
             .responseJSON { (_, _, JSON_DATA, _) in
-                
                 if JSON_DATA == nil{
                     SCLAlertView().showWarning("温馨提示", subTitle:"您的网络在开小差,赶紧制服它,精彩的文章在等你.", closeButtonTitle:"去制服")
-                    
                     return
                 }else{
                     let data = JSON(JSON_DATA!)
-                    
                     // println(data)
-                    
                     //文章详情
                     let articles = data["content"]
-                    
                     //文章标题
                     let atitle = articles["title"]
                     //发布时间
                     var r = NSRange(location: 0,length: 11)
-                    
                     let postDate:String = articles["date"].string!
                     var postTime :NSString =   postDate as NSString
-                    
                     postTime = postTime.substringWithRange(r)
-                    
-                    //发布时间
-                    
                     //文章正文
                     let articleContent = articles["content"]
-                    
-                    
                     //作者
                     let author = articles["author"]
-                    
                     //显示文章
                     let hr = "<hr class='rich_media_title'/>"
-                    
-                    
                     let topHtml = "<html lang='zh-CN'><head><meta charset='utf-8'><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><title>\(atitle)</title><meta name='apple-itunes-app' content='app-id=639087967, app-argument=zhihudaily://story/4074215'><meta name='viewport' content='user-scalable=no, width=device-width'><link rel='stylesheet' href='http://203.195.152.45:8080/itjh/resource/zhihu.css'><script src='http://203.195.152.45:8080/itjh/resource/jquery.1.9.1.js'></script><base target='_blank'></head><body> <div class='main-wrap content-wrap'> <div class='content-inner'> <div class='question'> <h2 class='question-title' >\(atitle)</h2> <div class='answer'> <div class='meta' style='padding-bottom:10px;border-bottom:1px solid #e7e7eb '> <span class='bio'>\(postTime)</span> &nbsp; <span class='bio'>\(author)</span> </div> <div class='content'>"
-                    
-                    
                     let footHtml = " </div> </div> </div>           </boby></script> </body> <script>$('img').attr('style', '');$('img').attr('width', '');$('img').attr('height', '');$('img').attr('class', '');$('img').attr('title', '');$('p').attr('style', '');</script></html>"
-                    
                     self.awebview.loadHTMLString("\(topHtml)\(articleContent)\(footHtml)", baseURL: nil)
                 }
         }
         
+        self.followScrollView(self.awebview)
+        self.awebview.scrollView.delegate = self
+        
+        
+    
     }
     
     
+    override func viewWillDisappear(animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        self.showNavBarAnimated(false)
+        
+        
+    }
     
-
+    func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
+        
+        self.showNavbar()
+        return true
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
     
     
 }
