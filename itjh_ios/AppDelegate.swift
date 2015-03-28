@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UMSocialData.setAppKey("54238dc5fd98c501b5028d70")
         UMSocialSinaHandler.openSSOWithRedirectURL("http://sns.whalecloud.com/sina2/callback")
         
-        UINavigationBar.appearance().barTintColor =  UIColor(red: 40/255.0, green: 132/255.0, blue: 200/255.0, alpha: 0.3)
+        UINavigationBar.appearance().barTintColor =  UIColor(red: 40/255.0, green: 132/255.0, blue: 200/255.0, alpha: 1)
         //UINavigationBar.appearance().barTintColor = UIColorFromRGB(0x028fd6)
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         

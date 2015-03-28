@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticlesShowViewController" customModule="itjh" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticlesShowViewController" customModule="itjh_ios" customModuleProvider="target">
             <connections>
                 <outlet property="atoolbar" destination="ERq-pt-FXB" id="tpC-fS-HOO"/>
                 <outlet property="awebview" destination="Xr0-sL-h1a" id="4Xe-Og-G6b"/>
@@ -16,26 +16,26 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xr0-sL-h1a">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </webView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ERq-pt-FXB">
                     <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                     <items/>
                 </toolbar>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xr0-sL-h1a">
-                    <rect key="frame" x="0.0" y="60" width="600" height="496"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </webView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Xr0-sL-h1a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="8xq-KT-kbK"/>
+                <constraint firstItem="Xr0-sL-h1a" firstAttribute="bottom" secondItem="ERq-pt-FXB" secondAttribute="top" id="5e9-Xo-lUv"/>
+                <constraint firstItem="Xr0-sL-h1a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8xq-KT-kbK"/>
                 <constraint firstAttribute="trailing" secondItem="ERq-pt-FXB" secondAttribute="trailing" id="RJg-to-ZUu"/>
                 <constraint firstItem="Xr0-sL-h1a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Vla-Tb-UdA"/>
                 <constraint firstAttribute="bottom" secondItem="ERq-pt-FXB" secondAttribute="bottom" id="Zcu-5H-xrG"/>
-                <constraint firstItem="Xr0-sL-h1a" firstAttribute="bottom" secondItem="ERq-pt-FXB" secondAttribute="top" id="e1i-Za-osK"/>
                 <constraint firstItem="ERq-pt-FXB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ojY-hX-SLH"/>
                 <constraint firstAttribute="trailing" secondItem="Xr0-sL-h1a" secondAttribute="trailing" id="qLI-PW-Lp6"/>
             </constraints>
-            <point key="canvasLocation" x="486" y="378"/>
+            <point key="canvasLocation" x="294" y="381"/>
         </view>
     </objects>
 </document>

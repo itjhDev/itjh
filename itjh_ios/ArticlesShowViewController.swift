@@ -122,7 +122,7 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
             
         ]
         atoolbar.setItems(itmes, animated: false)
-        atoolbar.setBackgroundImage(UIImage(named: "toolbar_bg"), forToolbarPosition: UIBarPosition.Bottom, barMetrics: UIBarMetrics.Default)
+       
     }
 
     override func viewDidLoad() {
@@ -132,7 +132,7 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
         let screenHeight:CGFloat = def.screenHeight()
         let screenWidth:CGFloat = def.screenWidth()
         
-//        UINavigationBar.appearance().frame = CGRect(x:0.0,y:20.0,width:screenWidth,height:screenHeight-20)
+        UINavigationBar.appearance().frame = CGRect(x:0.0,y:20.0,width:screenWidth,height:screenHeight-20)
         
         //设置Nav
         if iOS7==true {
@@ -190,11 +190,8 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
                 }
         }
         
-        self.followScrollView(self.awebview)
+        self.followScrollView(self.awebview, withDelay: 0)
         self.awebview.scrollView.delegate = self
-        
-        
-    
     }
     
     
