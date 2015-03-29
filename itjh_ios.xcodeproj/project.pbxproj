@@ -77,6 +77,8 @@
 		F4BF9EF31AB8615F00CBF98F /* icon152@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BF9EEE1AB8615F00CBF98F /* icon152@2x.png */; };
 		F4BF9EF41AB8615F00CBF98F /* icon152.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BF9EEF1AB8615F00CBF98F /* icon152.png */; };
 		F4BF9EF51AB8615F00CBF98F /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BF9EF01AB8615F00CBF98F /* icon120.png */; };
+		F4D3EF001AC82C380090BECC /* ArticleCollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3EEFE1AC82C380090BECC /* ArticleCollectViewController.swift */; };
+		F4D3EF011AC82C380090BECC /* ArticleCollectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4D3EEFF1AC82C380090BECC /* ArticleCollectViewController.xib */; };
 		F4E4A2EE1AC7FECB001C0915 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E4A2ED1AC7FECB001C0915 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -198,6 +200,8 @@
 		F4BF9EEE1AB8615F00CBF98F /* icon152@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon152@2x.png"; sourceTree = "<group>"; };
 		F4BF9EEF1AB8615F00CBF98F /* icon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon152.png; sourceTree = "<group>"; };
 		F4BF9EF01AB8615F00CBF98F /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
+		F4D3EEFE1AC82C380090BECC /* ArticleCollectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleCollectViewController.swift; sourceTree = "<group>"; };
+		F4D3EEFF1AC82C380090BECC /* ArticleCollectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleCollectViewController.xib; sourceTree = "<group>"; };
 		F4E4A2ED1AC7FECB001C0915 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -409,6 +413,8 @@
 				F4A417221AC4325600FE6360 /* UserViewController.swift */,
 				F48782AB1AC46C82001CDBD2 /* UserLoginViewController.swift */,
 				F48782AC1AC46C82001CDBD2 /* UserLoginViewController.xib */,
+				F4D3EEFE1AC82C380090BECC /* ArticleCollectViewController.swift */,
+				F4D3EEFF1AC82C380090BECC /* ArticleCollectViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -617,6 +623,7 @@
 				F4BF9EE31AB8615600CBF98F /* my_icon@2x.png in Resources */,
 				F49ED3DC1ABC4D57005BC563 /* UMSnsAccountViewController.xib in Resources */,
 				F49ED3D81ABC4D57005BC563 /* UMSCommentInputControlleriPad.xib in Resources */,
+				F4D3EF011AC82C380090BECC /* ArticleCollectViewController.xib in Resources */,
 				F4BF9EE51AB8615600CBF98F /* default_showPic@3x.png in Resources */,
 				F4A417291AC4477E00FE6360 /* user.plist in Resources */,
 				F4BF9EF41AB8615F00CBF98F /* icon152.png in Resources */,
@@ -719,6 +726,7 @@
 				F492AD751AC65E0A00F5635F /* UIColorExtension.swift in Sources */,
 				F455422B1A81061D00B66334 /* ViewController.swift in Sources */,
 				F49AC4DD1AC05129008F925D /* MJRefreshConst.m in Sources */,
+				F4D3EF001AC82C380090BECC /* ArticleCollectViewController.swift in Sources */,
 				F49ED34D1ABC47A0005BC563 /* HomeArticleTableViewCell.swift in Sources */,
 				F49AC4DC1AC05129008F925D /* MJRefreshComponent.m in Sources */,
 				F4A5041A1AC3240A00207C6D /* ArticleInterestingViewController.swift in Sources */,

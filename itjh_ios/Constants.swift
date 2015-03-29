@@ -27,6 +27,9 @@ var login = "http://m.itjh.com.cn:8080/mitjh/PeopleServer/saveUser/"
 //用户收藏文章  POST方式
 var userCollection = "http://m.itjh.com.cn:8080/mitjh/poas/userCollectionArticle"
 
+//获取用户收藏列表
+var userCollecList = "http://m.itjh.com.cn:8080/mitjh/poas/queryArticleListByUserCollection/"
+
 //登录状态
 var loginState:Bool  = false
 //微博用户信息

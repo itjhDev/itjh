@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import Alamofire
+import SCLAlertView
+import SwiftyJSON
 
 class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate{
 
@@ -23,13 +25,8 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if loginState{
-            self.navigationTitle.text = "我的江湖"
-
-        }else{
-            self.navigationTitle.text = "登录"
-
-        }
+     
+        self.navigationTitle.text = "我的江湖"
 
         myTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: sectionsTableIdentifier)
         
@@ -122,6 +119,8 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
                 self.navigationController?.pushViewController(detailCtrl, animated: true)
             case 1:
                 println("我的收藏")
+                userCollectAction()
+                
             default:
                 println("")
                 
@@ -136,7 +135,6 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
             case 1:
                 println("去吐槽 -->发送邮件")
                 sendEmailAction()
-                
             default:
                 println("")
                 
@@ -164,18 +162,15 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
     
     //发送邮件功能
     func sendEmailAction(){
-
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
             self.presentViewController(mailComposeViewController, animated: true, completion: nil)
         }
-        
     }
     
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
-        
         //设置收件人
         mailComposerVC.setToRecipients(["iosdev@itjh.com.cn"])
         //设置主题
@@ -185,15 +180,34 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         let appName = info["CFBundleName"] as String
         let appVersion = info["CFBundleVersion"] as String
         mailComposerVC.setMessageBody("</br></br></br></br></br>基本信息：</br></br></br>\(appName)</br> \(UIDevice.currentDevice().name)</br>iOS \(UIDevice.currentDevice().systemVersion)", isHTML: true)
-        
         return mailComposerVC
     }
-    
-  
-    
     // MARK: MFMailComposeViewControllerDelegate Method
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: 获取用户收藏列表
+    func userCollectAction(){
+        //判断用户是否登录
+        if userDefaults.stringForKey("user_client_id") != nil{
+            
+            
+            
+            
+            
+            
+            
+        }else{
+            let alert = SCLAlertView()
+            alert.addButton("去登录", action: { () -> Void in
+                var detailCtrl = UserLoginViewController(nibName: "UserLoginViewController", bundle: nil);
+                detailCtrl.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(detailCtrl, animated: true)
+            })
+            alert.showWarning("温馨提示", subTitle:"登录使用此功能,去登录吧!", closeButtonTitle:"不登录")
+        }
+
     }
     
     

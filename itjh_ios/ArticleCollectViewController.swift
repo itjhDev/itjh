@@ -1,8 +1,8 @@
 //
-//  HomeViewController.swift
+//  ArticleCollectViewController.swift
 //  itjh_ios
 //
-//  Created by LijunSong on 15/3/20.
+//  Created by LijunSong on 15/3/29.
 //  Copyright (c) 2015年 LijunSong. All rights reserved.
 //
 
@@ -10,17 +10,14 @@ import UIKit
 import Alamofire
 import SCLAlertView
 import SwiftyJSON
-
-
-class HomeViewController: BaseViewController  {
-    
+class ArticleCollectViewController: BaseViewController {
 
     @IBOutlet weak var atableView: UITableView!
-    
     var url = GET_ARTICLE
     
     var currentArticleData:[Article] =  []
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,7 +25,7 @@ class HomeViewController: BaseViewController  {
         var nib = UINib(nibName: "HomeArticleTableViewCell", bundle: nil)
         self.atableView.registerNib(nib, forCellReuseIdentifier: identifier)
         
-        self.navigationTitle.text = "IT江湖"
+        self.navigationTitle.text = "我的收藏"
         
         self.atableView.addLegendHeaderWithRefreshingBlock { () -> Void in
             self.loadNewData()
@@ -39,8 +36,6 @@ class HomeViewController: BaseViewController  {
             self.loadMoreData()
         }
         self.atableView.footer.hidden = true
-
-        
 
     }
 
@@ -55,9 +50,7 @@ class HomeViewController: BaseViewController  {
 
         //接口url
         var articleUrl = url + "\(offset)/\(size)"
-        
-      
-        
+                
         // 请求数据
         Alamofire.request(.GET, articleUrl).responseJSON { (_, _, JSON_DATA, _) -> Void in
             if JSON_DATA == nil{
@@ -85,9 +78,7 @@ class HomeViewController: BaseViewController  {
             }
         }
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-
     }
-    
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -147,11 +138,8 @@ class HomeViewController: BaseViewController  {
         let delayInSeconds:Int64 = 1000000000 * 2
         var popTime:dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW,delayInSeconds)
         dispatch_after(popTime, dispatch_get_main_queue(), {
-            
             self.atableView.reloadData()
             self.atableView.footer.endRefreshing();
-            
-
         })
 
     }
@@ -176,4 +164,6 @@ class HomeViewController: BaseViewController  {
         });
         
     }
+    
+
 }

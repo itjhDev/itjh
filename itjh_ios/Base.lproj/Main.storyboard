@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5571" y="142"/>
+            <point key="canvasLocation" x="6383" y="142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JTN-kK-CeN">
@@ -208,7 +208,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KaW-5m-xGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-953" y="831"/>
+            <point key="canvasLocation" x="-1351" y="831"/>
         </scene>
         <!--Article Interesting View Controller-->
         <scene sceneID="gSE-5G-Rcf">
@@ -246,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UC5-N7-o2O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2925" y="831"/>
+            <point key="canvasLocation" x="1353" y="760"/>
         </scene>
         <!--趣文-->
         <scene sceneID="Oow-Gi-EiU">
