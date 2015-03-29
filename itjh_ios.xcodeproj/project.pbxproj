@@ -77,6 +77,7 @@
 		F4BF9EF31AB8615F00CBF98F /* icon152@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BF9EEE1AB8615F00CBF98F /* icon152@2x.png */; };
 		F4BF9EF41AB8615F00CBF98F /* icon152.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BF9EEF1AB8615F00CBF98F /* icon152.png */; };
 		F4BF9EF51AB8615F00CBF98F /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = F4BF9EF01AB8615F00CBF98F /* icon120.png */; };
+		F4E4A2EE1AC7FECB001C0915 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E4A2ED1AC7FECB001C0915 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +198,7 @@
 		F4BF9EEE1AB8615F00CBF98F /* icon152@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon152@2x.png"; sourceTree = "<group>"; };
 		F4BF9EEF1AB8615F00CBF98F /* icon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon152.png; sourceTree = "<group>"; };
 		F4BF9EF01AB8615F00CBF98F /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
+		F4E4A2ED1AC7FECB001C0915 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4E4A2EE1AC7FECB001C0915 /* MessageUI.framework in Frameworks */,
 				F49AC4BE1AC04C96008F925D /* libWeChatSDK.a in Frameworks */,
 				45FCBEC4C7AAFCAE17DFFE6E /* Pods.framework in Frameworks */,
 				F49ED3D41ABC4D56005BC563 /* libUMSocial_Sdk_4.2.1.a in Frameworks */,
@@ -227,6 +230,7 @@
 		C720FE68D6F2102B18C6729C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F4E4A2ED1AC7FECB001C0915 /* MessageUI.framework */,
 				D4CBE911943584EB3D6EE0E5 /* Pods.framework */,
 			);
 			name = Frameworks;

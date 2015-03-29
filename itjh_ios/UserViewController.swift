@@ -9,7 +9,7 @@
 import UIKit
 
 
-class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate{
+class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate{
 
     @IBOutlet weak var myTableView: UITableView!
     
@@ -42,6 +42,8 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         myTableView.sectionIndexBackgroundColor = UIColor.blackColor()
         myTableView.sectionIndexTrackingBackgroundColor = UIColor.darkGrayColor()
         myTableView.sectionIndexColor = UIColor.whiteColor()
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -132,7 +134,9 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
                 let evaluateString = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=946717730&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"
                 UIApplication.sharedApplication().openURL(NSURL(string: evaluateString)!)
             case 1:
-                println("去吐槽")
+                println("去吐槽 -->发送邮件")
+                sendEmailAction()
+                
             default:
                 println("")
                 
@@ -157,5 +161,40 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         
 
     }
+    
+    //发送邮件功能
+    func sendEmailAction(){
+
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+        }
+        
+    }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        //设置收件人
+        mailComposerVC.setToRecipients(["iosdev@itjh.com.cn"])
+        //设置主题
+        mailComposerVC.setSubject("IT江湖iOS反馈")
+        //邮件内容
+        let info:Dictionary = NSBundle.mainBundle().infoDictionary!
+        let appName = info["CFBundleName"] as String
+        let appVersion = info["CFBundleVersion"] as String
+        mailComposerVC.setMessageBody("</br></br></br></br></br>基本信息：</br></br></br>\(appName)</br> \(UIDevice.currentDevice().name)</br>iOS \(UIDevice.currentDevice().systemVersion)", isHTML: true)
+        
+        return mailComposerVC
+    }
+    
+  
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
 }

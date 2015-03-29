@@ -19,6 +19,7 @@
 
 
 #import "UIViewController+ScrollingNavbar.h"
+#import <MessageUI/MessageUI.h>
 
 
 

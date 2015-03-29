@@ -131,7 +131,7 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
         let iOS7:Bool = def.ifIOS7()
         let screenHeight:CGFloat = def.screenHeight()
         let screenWidth:CGFloat = def.screenWidth()
-        
+
         UINavigationBar.appearance().frame = CGRect(x:0.0,y:20.0,width:screenWidth,height:screenHeight-20)
         
         //设置Nav
@@ -149,6 +149,10 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
 
         configToolbar()
         loadData()
+        
+//        self.followScrollView(self.awebview)
+//        self.awebview.scrollView.delegate = self
+
         // Do any additional setup after loading the view.
     }
 
@@ -189,22 +193,17 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
                     self.awebview.loadHTMLString("\(topHtml)\(articleContent)\(footHtml)", baseURL: nil)
                 }
         }
-        
-        self.followScrollView(self.awebview, withDelay: 0)
-        self.awebview.scrollView.delegate = self
+      
     }
     
     
     override func viewWillDisappear(animated: Bool) {
-        
         super.viewWillDisappear(animated)
         self.showNavBarAnimated(false)
-        
         
     }
     
     func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
-        
         self.showNavbar()
         return true
     }

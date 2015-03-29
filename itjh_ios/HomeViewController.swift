@@ -28,7 +28,7 @@ class HomeViewController: BaseViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //加载nib
         var nib = UINib(nibName: "HomeArticleTableViewCell", bundle: nil)
         self.atableView.registerNib(nib, forCellReuseIdentifier: identifier)
@@ -45,6 +45,8 @@ class HomeViewController: BaseViewController  {
         }
         self.atableView.footer.hidden = true
 
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +56,8 @@ class HomeViewController: BaseViewController  {
     
     // MARK: 加载数据
     func loadData(offset:Int, size:Int){
-        
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+
         //接口url
         var articleUrl = url + "\(offset)/\(size)"
         
@@ -86,6 +89,8 @@ class HomeViewController: BaseViewController  {
                 }
             }
         }
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+
     }
     
     
@@ -137,7 +142,7 @@ class HomeViewController: BaseViewController  {
     
     // MARK: 上拉加载数据
     func loadMoreData(){
-       
+
         // 1.添加数据
         self.PAGE_NUM += 1
         loadData(self.PAGE_NUM, size: SHOW_NUM)
@@ -153,6 +158,7 @@ class HomeViewController: BaseViewController  {
             
 
         })
+
     }
     // MARK: 下拉刷新数据
     func loadNewData(){
@@ -173,7 +179,6 @@ class HomeViewController: BaseViewController  {
             self.atableView.footer.hidden = false
 
         });
-
         
     }
 }
