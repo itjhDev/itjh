@@ -22,6 +22,10 @@ class UserLoginViewController: UIViewController {
         snsPlatform.loginClickHandler(self,UMSocialControllerService.defaultControllerService(),true,{(response :UMSocialResponseEntity!) ->Void in
                         
             var sainUser = response.data as NSDictionary
+            
+            println(sainUser)
+            
+            
             var jsonre = JSON(sainUser["sina"]!)
             
             println("微博用户数据\(jsonre)")
@@ -37,6 +41,7 @@ class UserLoginViewController: UIViewController {
             icon = jsonre["icon"].string!
             
             if jsonre != nil{
+                
                 let parameters = [
                     "nickname": username,
                     "face":icon,
