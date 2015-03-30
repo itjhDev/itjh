@@ -1,0 +1,90 @@
+<link rel="stylesheet" type="text/css" href="markdown.css"></link>
+<h1>登录 快速集成</h1>
+<h2>1 产品概述</h2>
+<p>通过登录控件，用户可以指定社交平台账号作为应用内账号，您可以获取此账号信息来识别用户身份，例如在界面中显示用户头像和昵称等信息。登录组件利用社交平台简化了用户的登录过程，也为用户身份识别提供了更通用的方法。</p>
+<h2>2 下载并安装SDK</h2>
+<h3>Step1</h3>
+<p>下载 <a href="http://dev.umeng.com/social/ios/sdk-download" style="text-decoration:none" target="_blank">最新版SDK</a></p>
+<h3>Step2</h3>
+<p>确认你使用的XCode版本在4.4以上，工程的Base SDK和iOS Deployment Target在iOS4.3以上</p>
+<h3>Step3</h3>
+<p>解压SDK压缩包，将其中形如UMSocial_Sdk_x.x.x的文件夹拖入工程目录：</p>
+<p><img alt="alt text" src="http://dev.umeng.com/images/ios/social_drag_sdk.png" title="drag_sdk" /> </p>
+<h3>Step4</h3>
+<p>确认勾选了“Copy items to destination's group folder”选项，并选择你要添加到的Target: </p>
+<p><img alt="alt text" src="http://dev.umeng.com/images/ios/social_check_tip.png" title="check_tip" /> </p>
+<p>现在应该是这样的效果：</p>
+<p><img alt="alt text" src="http://dev.umeng.com/images/ios/social_project_structure.png" title="project_structure" /> </p>
+<h2>3 Xcode相关配置</h2>
+<h3>新浪微博SSO方式授权</h3>
+<p>本SDK默认支持新浪微博SSO授权，SSO即需要新浪微博授权的时候会判断设备是否安装新浪微博客户端，如果有的话就跳到客户端再回来。如果你想支持新浪微博SSO，方法如下：</p>
+<pre><code> 1 . 添加URL scheme，在你的工程设置项,targets 一栏下,选中自己的 target,在 Info-&gt;URL Types 中添加 URL Schemes,此值是 sso 登录时回调时所用。如果使用的是Xcode3或更低版本，则需要在plist文件中添加。将url scheme修改为“sina.你的友盟appkey”如下图。
+</code></pre>
+<p><img alt="socialbar" src="http://dev.umeng.com/images/ios/social_sinasso.png" title="social_sso" /></p>
+<pre><code> 2 . 在你的`AppDelegate`文件里面实现下面两个系统的回调方法：
+</code></pre>
+<pre><code>#import &quot;UMSocial.h&quot;
+……
+  - (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    [UMSocialSnsService  applicationDidBecomeActive];
+}
+
+  - (BOOL)application:(UIApplication *)application 
+              openURL:(NSURL *)url 
+    sourceApplication:(NSString *)sourceApplication
+           annotation:(id)annotation
+ {
+ return  [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];
+ }  
+</code></pre>
+
+<pre><code>3 . 关闭新浪微博SSO授权的方法是`[UMSocialConfig setSupportSinaSSO:NO];`。
+</code></pre>
+<h2>4 集成代码</h2>
+<h3>设置友盟Appkey</h3>
+<pre><code>#import &quot;UMSocial.h&quot;
+……
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [UMSocialData setAppKey:@&quot;507fcab25270157b37000010&quot;];
+}
+</code></pre>
+
+<h3>打开各个微博平台的授权页面</h3>
+<pre><code>#import &quot;UMSocial.h&quot;
+……
+//`snsName` 代表各个支持云端分享的平台名，有`UMShareToSina`,`UMShareToTencent`等五个。    
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
+    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response)
+    {
+        NSLog(@&quot;response is %@&quot;,response);
+    });
+</code></pre>
+
+<p>授权之后获取各个微博账号数据，可以在上面的回调Block方法内实现下面的代码，</p>
+<pre><code>{
+    //如果是授权到新浪微博，SSO之后如果想获取用户的昵称、头像等需要再次获取一次账户信息
+    if ([platformName isEqualToString:UMShareToSina]) {
+        [[UMSocialDataService defaultDataService] requestSocialAccountWithCompletion:^(UMSocialResponseEntity *accountResponse){
+            NSLog(@&quot;SinaWeibo's user name is %@&quot;,[[[accountResponse.data objectForKey:@&quot;accounts&quot;] objectForKey:UMShareToSina] objectForKey:@&quot;username&quot;]);
+        }];
+    }
+
+    //这里可以获取到腾讯微博openid,Qzone的token等
+    /*
+    else if ([platformName isEqualToString:UMShareToTencent]) {
+        [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToTencent completion:^(UMSocialResponseEntity *respose){
+            NSLog(@&quot;get openid  response is %@&quot;,respose);
+        }];
+    }
+     */
+}
+</code></pre>
+
+<p>这个方法是强制弹出授权，你可以根据已经授权情况来判断是否调用，，例如有没有授权到新浪微博</p>
+<pre><code>BOOL isOauth = [UMSocialAccountManager isOauthWithPlatform:UMShareToSina];
+</code></pre>
+
+<h2>5 进阶使用</h2>
+<p>如果上述文档不能满足你的需求，请移步至“详细集成文档”。</p>

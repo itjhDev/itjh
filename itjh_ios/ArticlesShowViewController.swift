@@ -99,15 +99,22 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
     // 分享方法
     func shareClick(barItme:UIBarButtonItem){
         println("点击了分享")
+        
+       
+        
+        
         var saimg = UIImage(data: NSData(contentsOfURL: NSURL(string: aimg)!)!)
         UMSocialData.defaultData().extConfig.title = atitle
         
         UMSocialWechatHandler.setWXAppId("wxf17bc88ea6076de8", appSecret: "50f8da2f5a4756526b4a0b6574e2650a", url: shareUrl + "\(artID).html")
         
-        let snsArray = [UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToFacebook,UMShareToTwitter,UMShareToEmail]
+        UMSocialDataService.defaultDataService().requestAddFollow(UMShareToSina, followedUsid:
+            ["2937537505"], completion: nil)
+               
+        let snsArray = [UMShareToSina,UMShareToWechatSession,UMShareToQQ,UMShareToQzone,UMShareToWechatTimeline,UMShareToFacebook,UMShareToTwitter,UMShareToEmail]
         
         
-        UMSocialSnsService .presentSnsIconSheetView(self, appKey: "54238dc5fd98c501b5028d70", shareText:atitle+"  "+shareUrl + "\(artID).html", shareImage: saimg, shareToSnsNames: snsArray, delegate: nil)
+        UMSocialSnsService.presentSnsIconSheetView(self, appKey: "54238dc5fd98c501b5028d70", shareText:atitle+"  "+shareUrl + "\(artID).html", shareImage: saimg, shareToSnsNames: snsArray, delegate: nil)
         
         
     }

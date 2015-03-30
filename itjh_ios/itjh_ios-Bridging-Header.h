@@ -14,12 +14,14 @@
 #import "UMSocialSinaHandler.h"
 #import "UMSocialControllerService.h"
 #import "UMSocialSnsPlatformManager.h"
+#import "UMSocialQQHandler.h"
 
 #import "MJRefresh.h"
 
 
 #import "UIViewController+ScrollingNavbar.h"
 #import <MessageUI/MessageUI.h>
+
 
 
 

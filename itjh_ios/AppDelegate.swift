@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -23,6 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UMSocialData.setAppKey("54238dc5fd98c501b5028d70")
         UMSocialSinaHandler.openSSOWithRedirectURL("http://sns.whalecloud.com/sina2/callback")
         
+        UMSocialQQHandler.setQQWithAppId("1103695854", appKey: "Qx34CKDOmDxksgT9", url: "http://www.umeng.com/social")
+        
+        //友盟统计
+        
+
+              
         UINavigationBar.appearance().barTintColor =  UIColor(red: 40/255.0, green: 132/255.0, blue: 200/255.0, alpha: 1)
         //UINavigationBar.appearance().barTintColor = UIColorFromRGB(0x028fd6)
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()

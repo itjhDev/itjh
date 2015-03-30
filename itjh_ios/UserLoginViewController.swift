@@ -12,77 +12,77 @@ import SCLAlertView
 import SwiftyJSON
 class UserLoginViewController: UIViewController {
     var navigationTitle = UILabel()
-
-   
-    @IBAction func loginAction(sender: UIButton) {
-        //用户登录
-        println("用户登录")
-        let snsPlatform:UMSocialSnsPlatform = UMSocialSnsPlatformManager.getSocialPlatformWithName(UMShareToSina)
+    
+    
+    @IBAction func qqLoginAction(sender: UIButton) {
+        
+        let snsPlatform:UMSocialSnsPlatform = UMSocialSnsPlatformManager.getSocialPlatformWithName(UMShareToQQ)
+        
         var  response:UMSocialResponseEntity
         snsPlatform.loginClickHandler(self,UMSocialControllerService.defaultControllerService(),true,{(response :UMSocialResponseEntity!) ->Void in
-                        
-            var sainUser = response.data as NSDictionary
             
-            println(sainUser)
+            var usm = UMSResponseCodeSuccess
+            var rcode = response.responseCode
             
-            
-            var jsonre = JSON(sainUser["sina"]!)
-            
-            println("微博用户数据\(jsonre)")
-            var usid = ""
-            var username = ""
-            var icon = ""
-            
-            //用户id
-            usid = jsonre["usid"].string!
-            //微博昵称
-            username = jsonre["username"].string!
-            //用户头像
-            icon = jsonre["icon"].string!
-            
-            if jsonre != nil{
+            if rcode.value == usm.value{
                 
-                let parameters = [
-                    "nickname": username,
-                    "face":icon,
-                    "user_client_id": usid,
-                    "platform_id": "1",
-                ]
-               
-                Alamofire.request(.POST, login, parameters: parameters).responseJSON { (_, _, JSON_DATA, _) in
+                var snsAccount = UMSocialAccountManager.socialAccountDictionary()
+                
+                var qqUser:UMSocialAccountEntity =  snsAccount[UMShareToQQ] as UMSocialAccountEntity
+                
+                println("QQ用户数据\(qqUser)")
+                //用户id
+                var usid = qqUser.usid
+                //微博昵称
+                var username = qqUser.userName
+                //用户头像
+                var icon = qqUser.iconURL
+                
+                if snsAccount != nil{
                     
-                    if JSON_DATA == nil{
-                        SCLAlertView().showWarning("温馨提示", subTitle:"网络有点问题,注册失败,请稍后重试!", closeButtonTitle:"ok")
-                        return
-                    }else{
-
-                        let data = JSON(JSON_DATA!)
-                        //用户信息
-                        //println("JSON数据\(data)")
-                     
-                        let peopleDict = data["people"].dictionary
-                        
-                        //println(peopleDict?.keys.array)
+                    let parameters = [
+                        "nickname": username,
+                        "face":icon,
+                        "user_client_id": usid,
+                        "platform_id": "2",
+                    ]
                     
-                        userWeibo.platform_id = 1
-                        userWeibo.face = icon
-                        userWeibo.nickname = username
-                        userWeibo.user_client_id = usid
+                    Alamofire.request(.POST, login, parameters: parameters).responseJSON { (_, _, JSON_DATA, _) in
                         
-                        //保存当前用户信息到缓存中
-                        userDefaults.setObject(username, forKey: "username")
-                        userDefaults.setObject(icon, forKey: "face")
-                        userDefaults.setObject(usid, forKey: "user_client_id")
-                        userDefaults.setObject(1, forKey: "platform_id")
-
-                        userDefaults.synchronize()
-                        
-                        SCLAlertView().showSuccess("登录成功", subTitle: "恭喜你登录成功", closeButtonTitle: "确定")
-                        loginState = true
-                        self.navigationController?.popToRootViewControllerAnimated(true)
-
+                        if JSON_DATA == nil{
+                            SCLAlertView().showWarning("温馨提示", subTitle:"网络有点问题,注册失败,请稍后重试!", closeButtonTitle:"ok")
+                            return
+                        }else{
+                            
+                            let data = JSON(JSON_DATA!)
+                            //用户信息
+                            //println("JSON数据\(data)")
+                            
+                            let peopleDict = data["people"].dictionary
+                            
+                            userWeibo.platform_id = 1
+                            userWeibo.face = icon
+                            userWeibo.nickname = username
+                            userWeibo.user_client_id = usid
+                            
+                            //保存当前用户信息到缓存中
+                            userDefaults.setObject(username, forKey: "username")
+                            userDefaults.setObject(icon, forKey: "face")
+                            userDefaults.setObject(usid, forKey: "user_client_id")
+                            userDefaults.setObject(1, forKey: "platform_id")
+                            
+                            userDefaults.synchronize()
+                            
+                            SCLAlertView().showSuccess("登录成功", subTitle: "恭喜你登录成功", closeButtonTitle: "确定")
+                            loginState = true
+                            self.navigationController?.popToRootViewControllerAnimated(true)
+                            
+                        }
                     }
+                }else{
+                    SCLAlertView().showError("登录失败", subTitle: "登录失败", closeButtonTitle: "确定")
                 }
+                
             }else{
                 SCLAlertView().showError("登录失败", subTitle: "登录失败", closeButtonTitle: "确定")
             }
@@ -90,11 +90,90 @@ class UserLoginViewController: UIViewController {
         });
         
     }
-   
+    @IBAction func loginAction(sender: UIButton) {
+        //用户登录
+        println("用户登录")
+        let snsPlatform:UMSocialSnsPlatform = UMSocialSnsPlatformManager.getSocialPlatformWithName(UMShareToSina)
+        
+        var  response:UMSocialResponseEntity
+        snsPlatform.loginClickHandler(self,UMSocialControllerService.defaultControllerService(),true,{(response :UMSocialResponseEntity!) ->Void in
+            
+            var usm = UMSResponseCodeSuccess
+            var rcode = response.responseCode
+            
+            if rcode.value == usm.value{
+                
+                var snsAccount = UMSocialAccountManager.socialAccountDictionary()
+                
+                var sniaUser:UMSocialAccountEntity =  snsAccount[UMShareToSina] as UMSocialAccountEntity
+                
+                println("微博用户数据\(sniaUser)")
+                //用户id
+                var usid = sniaUser.usid
+                //微博昵称
+                var username = sniaUser.userName
+                //用户头像
+                var icon = sniaUser.iconURL
+                
+                if snsAccount != nil{
+                    
+                    let parameters = [
+                        "nickname": username,
+                        "face":icon,
+                        "user_client_id": usid,
+                        "platform_id": "1",
+                    ]
+                    
+                    Alamofire.request(.POST, login, parameters: parameters).responseJSON { (_, _, JSON_DATA, _) in
+                        
+                        if JSON_DATA == nil{
+                            SCLAlertView().showWarning("温馨提示", subTitle:"网络有点问题,注册失败,请稍后重试!", closeButtonTitle:"ok")
+                            return
+                        }else{
+                            
+                            let data = JSON(JSON_DATA!)
+                            //用户信息
+                            //println("JSON数据\(data)")
+                            
+                            let peopleDict = data["people"].dictionary
+                            
+                            //println(peopleDict?.keys.array)
+                            
+                            userWeibo.platform_id = 1
+                            userWeibo.face = icon
+                            userWeibo.nickname = username
+                            userWeibo.user_client_id = usid
+                            
+                            //保存当前用户信息到缓存中
+                            userDefaults.setObject(username, forKey: "username")
+                            userDefaults.setObject(icon, forKey: "face")
+                            userDefaults.setObject(usid, forKey: "user_client_id")
+                            userDefaults.setObject(1, forKey: "platform_id")
+                            
+                            userDefaults.synchronize()
+                            
+                            SCLAlertView().showSuccess("登录成功", subTitle: "恭喜你登录成功", closeButtonTitle: "确定")
+                            loginState = true
+                            self.navigationController?.popToRootViewControllerAnimated(true)
+                            
+                        }
+                    }
+                }else{
+                    SCLAlertView().showError("登录失败", subTitle: "登录失败", closeButtonTitle: "确定")
+                }
+                
+            }else{
+                SCLAlertView().showError("登录失败", subTitle: "登录失败", closeButtonTitle: "确定")
+            }
+            
+        });
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let def = Define()
         let iOS7:Bool = def.ifIOS7()
         let screenHeight:CGFloat = def.screenHeight()
@@ -114,21 +193,13 @@ class UserLoginViewController: UIViewController {
         navigationTitle.textAlignment = NSTextAlignment.Center
         self.navigationItem.titleView = navigationTitle
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
+    
+    
 }

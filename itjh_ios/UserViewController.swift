@@ -83,7 +83,7 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         cell.textLabel?.text = nameSection[indexPath.row]
         
         
-        println("登录状态：\(loginState)")
+       // println("登录状态：\(loginState)")
         if loginState{
             if indexPath.section == 0 && indexPath.row == 0{
                     cell.textLabel?.text = userWeibo.nickname
