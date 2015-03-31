@@ -31,6 +31,7 @@
                 <constraint firstItem="3QM-yU-YFD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Xsz-fS-Rap"/>
                 <constraint firstItem="3QM-yU-YFD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="def-HT-GPa"/>
             </constraints>
+            <point key="canvasLocation" x="113" y="281"/>
         </view>
     </objects>
 </document>

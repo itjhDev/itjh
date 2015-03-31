@@ -51,20 +51,19 @@ class HomeViewController: BaseViewController  {
     
     // MARK: 加载数据
     func loadData(offset:Int, size:Int){
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
         //接口url
         var articleUrl = url + "\(offset)/\(size)"
         
-      
-        
         // 请求数据
         Alamofire.request(.GET, articleUrl).responseJSON { (_, response, JSON_DATA, error) -> Void in
             
-//            println(">>>>>>>  \(response)")
+            println(">>>>>>>  \(response)")
             
             if JSON_DATA == nil{
                 SCLAlertView().showWarning("温馨提示", subTitle:"您的网络在开小差,赶紧制服它,精彩的文章在等你.", closeButtonTitle:"去制服")
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+
                 return
             }else{
                 if self.PAGE_NUM == 0{
@@ -87,7 +86,6 @@ class HomeViewController: BaseViewController  {
                 }
             }
         }
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 
     }
     
@@ -140,6 +138,7 @@ class HomeViewController: BaseViewController  {
     
     // MARK: 上拉加载数据
     func loadMoreData(){
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
         // 1.添加数据
         self.PAGE_NUM += 1
@@ -153,13 +152,15 @@ class HomeViewController: BaseViewController  {
             
             self.atableView.reloadData()
             self.atableView.footer.endRefreshing();
-            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+
 
         })
 
     }
     // MARK: 下拉刷新数据
     func loadNewData(){
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
         // 1.添加假数据
         self.PAGE_NUM = 0
@@ -175,6 +176,7 @@ class HomeViewController: BaseViewController  {
             // 拿到当前的下拉刷新控件，结束刷新状态
             self.atableView.header.endRefreshing()
             self.atableView.footer.hidden = false
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 
         });
         

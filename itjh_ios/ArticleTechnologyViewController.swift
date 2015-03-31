@@ -27,7 +27,7 @@ class ArticleTechnologyViewController: BaseViewController {
         self.atableView.registerNib(nib, forCellReuseIdentifier: identifier)
         self.navigationTitle.text = "技术"
         
-        
+
         self.atableView.addLegendHeaderWithRefreshingBlock { () -> Void in
             self.loadNewData()
         }
@@ -53,7 +53,10 @@ class ArticleTechnologyViewController: BaseViewController {
         
         
         // 请求数据
-        Alamofire.request(.GET, articleUrl).responseJSON { (_, _, JSON_DATA, _) -> Void in
+        Alamofire.request(.GET, articleUrl).responseJSON { (_, response, JSON_DATA, error) -> Void in
+
+            println(">>>>>>>  \(response)")
+
             if JSON_DATA == nil{
                 SCLAlertView().showWarning("温馨提示", subTitle:"您的网络在开小差,赶紧制服它,精彩的文章在等你.", closeButtonTitle:"去制服")
                 return
@@ -128,6 +131,8 @@ class ArticleTechnologyViewController: BaseViewController {
     
     // MARK: 上拉加载数据
     func loadMoreData(){
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+
         // 1.添加数据
         self.PAGE_NUM += 1
         loadData(PAGE_NUM, size: SHOW_NUM)
@@ -141,11 +146,14 @@ class ArticleTechnologyViewController: BaseViewController {
             self.atableView.reloadData()
             self.atableView.footer.endRefreshing();
             
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 
         })
     }
     // MARK: 下拉刷新数据
     func loadNewData(){
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+
         // 1.添加假数据
         self.PAGE_NUM = 0
         loadData(self.PAGE_NUM, size: SHOW_NUM)
@@ -160,6 +168,7 @@ class ArticleTechnologyViewController: BaseViewController {
             // 拿到当前的下拉刷新控件，结束刷新状态
             self.atableView.header.endRefreshing()
             self.atableView.footer.hidden = false
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 
         });
     }

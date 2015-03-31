@@ -13,7 +13,10 @@ import SwiftyJSON
 class ArticleCollectViewController: BaseViewController {
 
     @IBOutlet weak var atableView: UITableView!
-    var url = GET_ARTICLE
+    
+    var url = userCollecList
+    
+    var userId:String = ""
     
     var currentArticleData:[Article] =  []
 
@@ -46,13 +49,13 @@ class ArticleCollectViewController: BaseViewController {
     
     // MARK: 加载数据
     func loadData(offset:Int, size:Int){
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
         //接口url
-        var articleUrl = url + "\(offset)/\(size)"
+        var articleUrl = url + userId + "/\(offset)/\(size)"
                 
         // 请求数据
-        Alamofire.request(.GET, articleUrl).responseJSON { (_, _, JSON_DATA, _) -> Void in
+        Alamofire.request(.GET, articleUrl).responseJSON { (_, response, JSON_DATA, error) -> Void in
+            println(response)
             if JSON_DATA == nil{
                 SCLAlertView().showWarning("温馨提示", subTitle:"您的网络在开小差,赶紧制服它,精彩的文章在等你.", closeButtonTitle:"去制服")
                 return
@@ -65,19 +68,24 @@ class ArticleCollectViewController: BaseViewController {
                 }
                 let data = JSON(JSON_DATA!)
                 let articlesArray = data["content"].arrayValue
-                for currentArticle in articlesArray{
-                    let article = Article()
-                    article.aid = currentArticle["aid"].int!
-                    article.title = currentArticle["title"].string!
-                    article.date = currentArticle["date"].string!
-                    article.img = currentArticle["img"].string!
-                    article.author_id = currentArticle["author_id"].int!
-                    article.author = currentArticle["author"].string!
-                    self.currentArticleData.append(article)
+                if articlesArray.count > 0{
+                    for currentArticle in articlesArray{
+                        let article = Article()
+                        article.aid = currentArticle["aid"].int!
+                        article.title = currentArticle["title"].string!
+                        article.date = currentArticle["date"].string!
+                        article.img = currentArticle["img"].string!
+                        article.author_id = currentArticle["author_id"].int!
+                        article.author = currentArticle["author"].string!
+                        self.currentArticleData.append(article)
+                    }
+                }else{
+                    SCLAlertView().showWarning("温馨提示", subTitle:"您没有收藏文章,赶紧去收藏吧", closeButtonTitle:"去IT江湖收藏")
+
                 }
+
             }
         }
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
     
     
@@ -128,6 +136,7 @@ class ArticleCollectViewController: BaseViewController {
     
     // MARK: 上拉加载数据
     func loadMoreData(){
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
         // 1.添加数据
         self.PAGE_NUM += 1
@@ -140,11 +149,14 @@ class ArticleCollectViewController: BaseViewController {
         dispatch_after(popTime, dispatch_get_main_queue(), {
             self.atableView.reloadData()
             self.atableView.footer.endRefreshing();
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+
         })
 
     }
     // MARK: 下拉刷新数据
     func loadNewData(){
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
         // 1.添加假数据
         self.PAGE_NUM = 0
@@ -160,6 +172,7 @@ class ArticleCollectViewController: BaseViewController {
             // 拿到当前的下拉刷新控件，结束刷新状态
             self.atableView.header.endRefreshing()
             self.atableView.footer.hidden = false
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 
         });
         

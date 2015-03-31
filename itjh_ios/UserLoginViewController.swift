@@ -15,7 +15,8 @@ class UserLoginViewController: UIViewController {
     
     
     @IBAction func qqLoginAction(sender: UIButton) {
-        
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+
         let snsPlatform:UMSocialSnsPlatform = UMSocialSnsPlatformManager.getSocialPlatformWithName(UMShareToQQ)
         
         var  response:UMSocialResponseEntity
@@ -86,11 +87,14 @@ class UserLoginViewController: UIViewController {
             }else{
                 SCLAlertView().showError("登录失败", subTitle: "登录失败", closeButtonTitle: "确定")
             }
-            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+
         });
         
     }
     @IBAction func loginAction(sender: UIButton) {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+
         //用户登录
         println("用户登录")
         let snsPlatform:UMSocialSnsPlatform = UMSocialSnsPlatformManager.getSocialPlatformWithName(UMShareToSina)
@@ -165,7 +169,8 @@ class UserLoginViewController: UIViewController {
             }else{
                 SCLAlertView().showError("登录失败", subTitle: "登录失败", closeButtonTitle: "确定")
             }
-            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+
         });
         
     }

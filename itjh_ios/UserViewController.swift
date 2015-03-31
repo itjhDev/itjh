@@ -119,8 +119,16 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
                 self.navigationController?.pushViewController(detailCtrl, animated: true)
             case 1:
                 println("我的收藏")
-                userCollectAction()
+                //判断用户是否登录
                 
+                let userId = userWeibo.user_client_id
+                if userDefaults.stringForKey("user_client_id") == nil{
+                   userCollectAction()
+                }else{
+                    var detailCtrl = ArticleCollectViewController(nibName: "ArticleCollectViewController", bundle: nil);
+                    detailCtrl.userId = userId
+                    self.navigationController?.pushViewController(detailCtrl, animated: true)
+                }
             default:
                 println("")
                 
@@ -179,7 +187,7 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         let info:Dictionary = NSBundle.mainBundle().infoDictionary!
         let appName = info["CFBundleName"] as String
         let appVersion = info["CFBundleVersion"] as String
-        mailComposerVC.setMessageBody("</br></br></br></br></br>基本信息：</br></br></br>\(appName)</br> \(UIDevice.currentDevice().name)</br>iOS \(UIDevice.currentDevice().systemVersion)", isHTML: true)
+        mailComposerVC.setMessageBody("</br></br></br></br></br>基本信息：</br></br>\(appName)</br> \(UIDevice.currentDevice().name)</br>iOS \(UIDevice.currentDevice().systemVersion)", isHTML: true)
         return mailComposerVC
     }
     // MARK: MFMailComposeViewControllerDelegate Method
@@ -189,24 +197,14 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
     
     // MARK: 获取用户收藏列表
     func userCollectAction(){
-        //判断用户是否登录
-        if userDefaults.stringForKey("user_client_id") != nil{
-            
-            
-            
-            
-            
-            
-            
-        }else{
+       
             let alert = SCLAlertView()
             alert.addButton("去登录", action: { () -> Void in
                 var detailCtrl = UserLoginViewController(nibName: "UserLoginViewController", bundle: nil);
                 detailCtrl.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(detailCtrl, animated: true)
             })
-            alert.showWarning("温馨提示", subTitle:"登录使用此功能,去登录吧!", closeButtonTitle:"不登录")
-        }
+            alert.showWarning("温馨提示", subTitle:"登录使用此功能,去登录吧!", closeButtonTitle:"稍后登录")
 
     }
     
