@@ -59,7 +59,10 @@ class HomeViewController: BaseViewController  {
       
         
         // 请求数据
-        Alamofire.request(.GET, articleUrl).responseJSON { (_, _, JSON_DATA, _) -> Void in
+        Alamofire.request(.GET, articleUrl).responseJSON { (_, response, JSON_DATA, error) -> Void in
+            
+//            println(">>>>>>>  \(response)")
+            
             if JSON_DATA == nil{
                 SCLAlertView().showWarning("温馨提示", subTitle:"您的网络在开小差,赶紧制服它,精彩的文章在等你.", closeButtonTitle:"去制服")
                 return
