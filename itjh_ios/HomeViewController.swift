@@ -122,6 +122,7 @@ class HomeViewController: BaseViewController  {
         detailCtrl.atitle = data.title
         detailCtrl.aimg = data.img
         detailCtrl.hidesBottomBarWhenPushed = true
+        detailCtrl.userId = userWeibo.user_client_id
         self.navigationController?.pushViewController(detailCtrl, animated: true)
     
     }

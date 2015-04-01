@@ -112,6 +112,8 @@ class ArticleInterestingViewController: BaseViewController {
         detailCtrl.artID = data.aid
         detailCtrl.atitle = data.title
         detailCtrl.aimg = data.img
+        detailCtrl.userId = userWeibo.user_client_id
+
         detailCtrl.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detailCtrl, animated: true)
         

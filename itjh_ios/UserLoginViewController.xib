@@ -24,7 +24,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUE-fc-xUr">
-                    <rect key="frame" x="30" y="402" width="541" height="98"/>
+                    <rect key="frame" x="30" y="382" width="541" height="98"/>
                     <state key="normal" image="qq_login">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -38,7 +38,7 @@
             </subviews>
             <color key="backgroundColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="yUE-fc-xUr" secondAttribute="bottom" constant="100" id="0M3-CW-tKn"/>
+                <constraint firstAttribute="bottom" secondItem="yUE-fc-xUr" secondAttribute="bottom" constant="120" id="0M3-CW-tKn"/>
                 <constraint firstItem="fpg-YZ-6ia" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="90" id="7wF-jF-Uhf"/>
                 <constraint firstItem="fpg-YZ-6ia" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="G0J-ZJ-hng"/>
                 <constraint firstAttribute="trailing" secondItem="AUm-ve-5zg" secondAttribute="trailing" constant="29" id="Iar-GF-zNd"/>

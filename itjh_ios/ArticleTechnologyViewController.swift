@@ -51,6 +51,7 @@ class ArticleTechnologyViewController: BaseViewController {
         //接口url
         var articleUrl = url + "\(offset)/\(size)"
         
+
         
         // 请求数据
         Alamofire.request(.GET, articleUrl).responseJSON { (_, response, JSON_DATA, error) -> Void in
@@ -114,6 +115,8 @@ class ArticleTechnologyViewController: BaseViewController {
         detailCtrl.artID = data.aid
         detailCtrl.atitle = data.title
         detailCtrl.aimg = data.img
+        detailCtrl.userId = userWeibo.user_client_id
+
         detailCtrl.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detailCtrl, animated: true)
     

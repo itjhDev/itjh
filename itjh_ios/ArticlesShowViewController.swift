@@ -27,6 +27,8 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
     
     var aimg2: UIImageView!
     
+    var userId = ""
+    
     
     //文章ID
     var artID:Int = 0
@@ -83,10 +85,52 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
     // 收藏方法
     func collectClick(barItme:UIBarButtonItem){
         println("点击了收藏")
-        barItme.image = UIImage(named: "store_icon_pressed")
-        barItme.tintColor = UIColor(rgba: "#3C8ACB")
+        
+        if loginState{
+            let parameters = [
+                "user_client_id": userId,
+                "article_id":String(userId)
+            ]
+            
+            println("++>>\( parameters)")
+            
+            let re:Alamofire.Request = Alamofire.request(.POST, userCollection, parameters: parameters)
+            println(re.request)
+            re.responseJSON { (request, response, JSON_DATA, _) -> Void in
+                println(">>>>>>>  \(response)")
+                var result = 0
+                if JSON_DATA == nil{
+                    SCLAlertView().showWarning("温馨提示", subTitle:"网络有点问题,注册失败,请稍后重试!", closeButtonTitle:"ok")
+                    return
+                }else{
+                    
+                    let data = JSON(JSON_DATA!)
+                    
+                    //收藏状态
+                    result = data["result"].int!
+                    
+                    //返回结果
+                    let description = data["description"]
+                    
+                    
+                    if result == 0{//收藏成功
+                        SCLAlertView().showWarning("温馨提示", subTitle:"\(description)", closeButtonTitle:"重试")
+                        
+                    }else{
+                        println("收藏成功")
+                        barItme.image = UIImage(named: "store_icon_pressed")
+                        barItme.tintColor = UIColor(rgba: "#3C8ACB")
+                        return
+                    }
+                    
+                }
+            }
+        }else{
+            var detailCtrl = UserLoginViewController(nibName: "UserLoginViewController", bundle: nil);
+            detailCtrl.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(detailCtrl, animated: true)
 
-       
+        }
     }
     // 分享按钮
     var shareItem:UIBarButtonItem{
@@ -219,6 +263,53 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    /**
+        用户收藏电影
+    */
+    func userCollectAction(userId:String,articleId:Int) -> Bool{
+        //
+        
+        
+        
+        let parameters = [
+            "user_client_id": userId,
+            "article_id":String(articleId)
+        ]
+        
+        println("++>>\( parameters)")
+       
+        let re:Alamofire.Request = Alamofire.request(.POST, userCollection, parameters: parameters)
+            println(re.request)
+           re.responseJSON { (request, response, JSON_DATA, _) -> Void in
+             println(">>>>>>>  \(response)")
+             var result = 0
+            if JSON_DATA == nil{
+                SCLAlertView().showWarning("温馨提示", subTitle:"网络有点问题,注册失败,请稍后重试!", closeButtonTitle:"ok")
+                return
+            }else{
+
+                let data = JSON(JSON_DATA!)
+                
+                //收藏状态
+                result = data["result"].int!
+                
+                //返回结果
+                let description = data["description"]
+
+                
+                if result == 0{//收藏成功
+                    SCLAlertView().showWarning("温馨提示", subTitle:"\(description)", closeButtonTitle:"重试")
+                   
+                }else{
+                    println("收藏成功")
+                }
+                
+            }
+        }
+        
+        return false
     }
     
     

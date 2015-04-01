@@ -25,7 +25,7 @@ var GET_ARTICLE_CATEGORY = "http://m.itjh.com.cn:8080/mitjh/ArticleServer/queryA
 var login = "http://m.itjh.com.cn:8080/mitjh/PeopleServer/saveUser/"
 
 //用户收藏文章  POST方式
-var userCollection = "http://m.itjh.com.cn:8080/mitjh/poas/userCollectionArticle"
+var userCollection = "http://m.itjh.com.cn:8080/mitjh/poas/userCollectionArticle/"
 
 //获取用户收藏列表
 var userCollecList = "http://m.itjh.com.cn:8080/mitjh/poas/queryArticleListByUserCollection/"
