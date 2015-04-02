@@ -13,6 +13,17 @@ import SwiftyJSON
 class UserLoginViewController: UIViewController {
     var navigationTitle = UILabel()
     
+    @IBOutlet weak var qqBut: UIButton!
+    
+    @IBOutlet weak var logoutBut: UIButton!
+    @IBOutlet weak var weiboBut: UIButton!
+    @IBOutlet weak var userName: UILabel!
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        self.reloadInputViews()
+    }
     
     @IBAction func qqLoginAction(sender: UIButton) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -61,7 +72,7 @@ class UserLoginViewController: UIViewController {
                             
                             let peopleDict = data["people"].dictionary
                             
-                            userWeibo.platform_id = 1
+                            userWeibo.platform_id = 2
                             userWeibo.face = icon
                             userWeibo.nickname = username
                             userWeibo.user_client_id = usid
@@ -70,7 +81,7 @@ class UserLoginViewController: UIViewController {
                             userDefaults.setObject(username, forKey: "username")
                             userDefaults.setObject(icon, forKey: "face")
                             userDefaults.setObject(usid, forKey: "user_client_id")
-                            userDefaults.setObject(1, forKey: "platform_id")
+                            userDefaults.setObject(2, forKey: "platform_id")
                             
                             userDefaults.synchronize()
                             
@@ -92,6 +103,30 @@ class UserLoginViewController: UIViewController {
         });
         
     }
+    
+    
+    
+    @IBAction func loginoutAction(sender: UIButton) {
+        //用户登出
+        
+        //删除当前用户信息到缓存中
+        userDefaults.removeObjectForKey("username")
+        userDefaults.removeObjectForKey("face")
+        userDefaults.removeObjectForKey("user_client_id")
+        userDefaults.removeObjectForKey("platform_id")
+        
+        userDefaults.synchronize()
+        
+        SCLAlertView().showSuccess("", subTitle: "登出成功", closeButtonTitle: "确定")
+        loginState = false
+        self.weiboBut.hidden = false
+        self.qqBut.hidden = false
+        
+
+        viewDidLoad()
+    
+    }
+    
     @IBAction func loginAction(sender: UIButton) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
@@ -197,6 +232,26 @@ class UserLoginViewController: UIViewController {
         navigationTitle.backgroundColor = UIColor.clearColor()
         navigationTitle.textAlignment = NSTextAlignment.Center
         self.navigationItem.titleView = navigationTitle
+        
+        //判断登录
+        if loginState{
+            if userWeibo.platform_id == 1{//微博登录
+                self.weiboBut.hidden = true
+            }
+            if userWeibo.platform_id == 2{//QQ登录
+                self.qqBut.hidden = true
+
+            }
+            self.userName.text = "\(userWeibo.nickname)"
+
+        }else{
+            self.userName.hidden = true
+            self.logoutBut.hidden = true
+            self.weiboBut.hidden = false
+            self.qqBut.hidden = false
+
+
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -151,13 +151,20 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
             switch irow{
                 
             case 0:
-                println("清除缓存")
+                  println("关注我们")
+                var detailCtrl = FollowViewController(nibName: "FollowViewController", bundle: nil);
+                
+                self.navigationController?.pushViewController(detailCtrl, animated: true)
                 
             case 1:
-                println("关注我们")
-            default:
-                println("关于我们")
+                   println("关于我们")
+                var detailCtrl = AboutViewController(nibName: "AboutViewController", bundle: nil);
                 
+                self.navigationController?.pushViewController(detailCtrl, animated: true)
+                
+            default:
+             
+                println("")
             }
             
         default:

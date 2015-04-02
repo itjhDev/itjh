@@ -39,6 +39,10 @@
 		F49ED34D1ABC47A0005BC563 /* HomeArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49ED34B1ABC47A0005BC563 /* HomeArticleTableViewCell.swift */; };
 		F49ED34E1ABC47A0005BC563 /* HomeArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49ED34C1ABC47A0005BC563 /* HomeArticleTableViewCell.xib */; };
 		F49ED4111ABC5223005BC563 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49ED4101ABC5223005BC563 /* Define.swift */; };
+		F4A233251ACD97F10086BE8E /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A233231ACD97F10086BE8E /* FollowViewController.swift */; };
+		F4A233261ACD97F10086BE8E /* FollowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A233241ACD97F10086BE8E /* FollowViewController.xib */; };
+		F4A233291ACD99F60086BE8E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A233271ACD99F60086BE8E /* AboutViewController.swift */; };
+		F4A2332A1ACD99F60086BE8E /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A233281ACD99F60086BE8E /* AboutViewController.xib */; };
 		F4A417231AC4325600FE6360 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A417221AC4325600FE6360 /* UserViewController.swift */; };
 		F4A417291AC4477E00FE6360 /* user.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4A417281AC4477E00FE6360 /* user.plist */; };
 		F4A504121AC2E24200207C6D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A504111AC2E24200207C6D /* Constants.swift */; };
@@ -167,6 +171,10 @@
 		F49ED34B1ABC47A0005BC563 /* HomeArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeArticleTableViewCell.swift; sourceTree = "<group>"; };
 		F49ED34C1ABC47A0005BC563 /* HomeArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeArticleTableViewCell.xib; sourceTree = "<group>"; };
 		F49ED4101ABC5223005BC563 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
+		F4A233231ACD97F10086BE8E /* FollowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
+		F4A233241ACD97F10086BE8E /* FollowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowViewController.xib; sourceTree = "<group>"; };
+		F4A233271ACD99F60086BE8E /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F4A233281ACD99F60086BE8E /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		F4A417221AC4325600FE6360 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		F4A417281AC4477E00FE6360 /* user.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = user.plist; sourceTree = "<group>"; };
 		F4A504111AC2E24200207C6D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -436,6 +444,10 @@
 				F48782AC1AC46C82001CDBD2 /* UserLoginViewController.xib */,
 				F4D3EEFE1AC82C380090BECC /* ArticleCollectViewController.swift */,
 				F4D3EEFF1AC82C380090BECC /* ArticleCollectViewController.xib */,
+				F4A233231ACD97F10086BE8E /* FollowViewController.swift */,
+				F4A233241ACD97F10086BE8E /* FollowViewController.xib */,
+				F4A233271ACD99F60086BE8E /* AboutViewController.swift */,
+				F4A233281ACD99F60086BE8E /* AboutViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -692,6 +704,7 @@
 			files = (
 				F4BF9EF21AB8615F00CBF98F /* icon180.png in Resources */,
 				F4E11D511AC9B02A0087F295 /* ios-social-sdk-like.html in Resources */,
+				F4A233261ACD97F10086BE8E /* FollowViewController.xib in Resources */,
 				F455422E1A81061D00B66334 /* Main.storyboard in Resources */,
 				F4BF9EE41AB8615600CBF98F /* default_showPic@2x.png in Resources */,
 				F4BF9EE91AB8615600CBF98F /* icon@3x.png in Resources */,
@@ -713,6 +726,7 @@
 				F4BF9EE51AB8615600CBF98F /* default_showPic@3x.png in Resources */,
 				F4E11D401AC9B02A0087F295 /* UMSCommentInputControlleriPad.xib in Resources */,
 				F4E11D581AC9B02A0087F295 /* markdown.css in Resources */,
+				F4A2332A1ACD99F60086BE8E /* AboutViewController.xib in Resources */,
 				F4E11D411AC9B02A0087F295 /* UMShareEditViewController.xib in Resources */,
 				F4A417291AC4477E00FE6360 /* user.plist in Resources */,
 				F4E11D551AC9B02A0087F295 /* ios-social-sdk-share-detail.html in Resources */,
@@ -811,6 +825,7 @@
 				F49AC4E41AC05129008F925D /* UIScrollView+MJExtension.m in Sources */,
 				F49AC4DE1AC05129008F925D /* MJRefreshFooter.m in Sources */,
 				F49AC4DF1AC05129008F925D /* MJRefreshGifFooter.m in Sources */,
+				F4A233291ACD99F60086BE8E /* AboutViewController.swift in Sources */,
 				F49AC4E11AC05129008F925D /* MJRefreshHeader.m in Sources */,
 				F4BF9ED21AB85C8400CBF98F /* Article.swift in Sources */,
 				F48782B41AC481E6001CDBD2 /* UserWeibo.swift in Sources */,
@@ -830,6 +845,7 @@
 				F4A504121AC2E24200207C6D /* Constants.swift in Sources */,
 				F49AC4E61AC05129008F925D /* UIView+MJExtension.m in Sources */,
 				F45542261A81061D00B66334 /* AppDelegate.swift in Sources */,
+				F4A233251ACD97F10086BE8E /* FollowViewController.swift in Sources */,
 				F49ED34A1ABC45A2005BC563 /* HomeViewController.swift in Sources */,
 				F49AC4E01AC05129008F925D /* MJRefreshGifHeader.m in Sources */,
 			);
@@ -916,7 +932,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -952,7 +968,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

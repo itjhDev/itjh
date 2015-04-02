@@ -296,11 +296,11 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
                     if isUserCollect == 1{ //用户已经收藏
                         
                        itmes = [
-                            self.trashItem,self.spaceItem,self.praisedItem,self.spaceItem,self.collectItem1,self.spaceItem,self.shareItem
+                            self.trashItem,self.spaceItem,self.collectItem1,self.spaceItem,self.shareItem
                             
                         ]
                     }else{ //没有收藏
-                        itmes = [self.trashItem,self.spaceItem,self.praisedItem,self.spaceItem,self.collectItem,self.spaceItem,self.shareItem
+                        itmes = [self.trashItem,self.spaceItem,self.collectItem,self.spaceItem,self.shareItem
                             
                         ]
 

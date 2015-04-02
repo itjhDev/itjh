@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FollowViewController" customModule="itjh_ios" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请关注我们官方微博" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZY-ZD-DJO">
+                    <rect key="frame" x="140" y="141" width="320" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="in5-Uv-Opj"/>
+                        <constraint firstAttribute="height" constant="46" id="shE-Fo-zBX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZg-em-0W2">
+                    <rect key="frame" x="272" y="271" width="57" height="57"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal" image="tanchuang_denglu_weibo.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更多有趣的功能等你发现" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCg-g1-0Z2">
+                    <rect key="frame" x="140" y="195" width="320" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@IT江湖网" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpd-5e-gvd">
+                    <rect key="frame" x="265" y="365" width="71" height="61"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="61" id="3sW-UQ-8oS"/>
+                        <constraint firstAttribute="width" constant="71" id="6mP-eD-hvH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="WCg-g1-0Z2" firstAttribute="top" secondItem="uZY-ZD-DJO" secondAttribute="bottom" constant="8" symbolic="YES" id="6Yz-6I-kME"/>
+                <constraint firstItem="uZY-ZD-DJO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="141" id="8Zl-hm-aOh"/>
+                <constraint firstItem="uZY-ZD-DJO" firstAttribute="centerX" secondItem="WZg-em-0W2" secondAttribute="centerX" id="9pb-cN-Ao3"/>
+                <constraint firstItem="uZY-ZD-DJO" firstAttribute="trailing" secondItem="WCg-g1-0Z2" secondAttribute="trailing" id="Dym-Yv-jfa"/>
+                <constraint firstItem="dpd-5e-gvd" firstAttribute="top" secondItem="WZg-em-0W2" secondAttribute="bottom" constant="37" id="EeJ-QG-4hr"/>
+                <constraint firstAttribute="bottom" secondItem="dpd-5e-gvd" secondAttribute="bottom" constant="174" id="Rft-nf-hD9"/>
+                <constraint firstItem="uZY-ZD-DJO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UFJ-Ba-UMB"/>
+                <constraint firstItem="uZY-ZD-DJO" firstAttribute="centerX" secondItem="dpd-5e-gvd" secondAttribute="centerX" id="Yd8-q9-elu"/>
+                <constraint firstItem="uZY-ZD-DJO" firstAttribute="leading" secondItem="WCg-g1-0Z2" secondAttribute="leading" id="YuO-My-8Qb"/>
+            </constraints>
+            <point key="canvasLocation" x="403" y="307"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tanchuang_denglu_weibo.png" width="57" height="57"/>
+    </resources>
+</document>
