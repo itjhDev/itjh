@@ -26,6 +26,8 @@ var login = "http://m.itjh.com.cn:8080/mitjh/PeopleServer/saveUser/"
 
 //用户收藏文章  POST方式
 var userCollection = "http://m.itjh.com.cn:8080/mitjh/poas/userCollectionArticle/"
+//用户取消收藏文章  POST方式
+var userCanceledArticle = "http://api.itjh.com.cn/mitjh/poas/userCanceledArticle/"
 
 //获取用户收藏列表
 var userCollecList = "http://m.itjh.com.cn:8080/mitjh/poas/queryArticleListByUserCollection/"

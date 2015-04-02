@@ -58,8 +58,6 @@ class HomeViewController: BaseViewController  {
         // 请求数据
         Alamofire.request(.GET, articleUrl).responseJSON { (_, response, JSON_DATA, error) -> Void in
             
-            println(">>>>>>>  \(response)")
-            
             if JSON_DATA == nil{
                 SCLAlertView().showWarning("温馨提示", subTitle:"您的网络在开小差,赶紧制服它,精彩的文章在等你.", closeButtonTitle:"去制服")
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -74,16 +72,22 @@ class HomeViewController: BaseViewController  {
                 }
                 let data = JSON(JSON_DATA!)
                 let articlesArray = data["content"].arrayValue
-                for currentArticle in articlesArray{
-                    let article = Article()
-                    article.aid = currentArticle["aid"].int!
-                    article.title = currentArticle["title"].string!
-                    article.date = currentArticle["date"].string!
-                    article.img = currentArticle["img"].string!
-                    article.author_id = currentArticle["author_id"].int!
-                    article.author = currentArticle["author"].string!
-                    self.currentArticleData.append(article)
+                if articlesArray.count > 0{
+                    for currentArticle in articlesArray{
+                        let article = Article()
+                        article.aid = currentArticle["aid"].int!
+                        article.title = currentArticle["title"].string!
+                        article.date = currentArticle["date"].string!
+                        article.img = currentArticle["img"].string!
+                        article.author_id = currentArticle["author_id"].int!
+                        article.author = currentArticle["author"].string!
+                        self.currentArticleData.append(article)
+                    }
+                }else{
+                    self.atableView.footer.noticeNoMoreData()
                 }
+                
+                
             }
         }
 

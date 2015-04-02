@@ -55,7 +55,6 @@ class ArticleCollectViewController: BaseViewController {
                 
         // 请求数据
         Alamofire.request(.GET, articleUrl).responseJSON { (_, response, JSON_DATA, error) -> Void in
-            println(response)
             if JSON_DATA == nil{
                 SCLAlertView().showWarning("温馨提示", subTitle:"您的网络在开小差,赶紧制服它,精彩的文章在等你.", closeButtonTitle:"去制服")
                 return
@@ -80,8 +79,7 @@ class ArticleCollectViewController: BaseViewController {
                         self.currentArticleData.append(article)
                     }
                 }else{
-                    SCLAlertView().showWarning("温馨提示", subTitle:"您没有收藏文章,赶紧去收藏吧", closeButtonTitle:"去IT江湖收藏")
-
+                   self.atableView.footer.noticeNoMoreData()
                 }
 
             }

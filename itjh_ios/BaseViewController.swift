@@ -19,7 +19,7 @@ class BaseViewController: UIViewController {
     //页码
     var PAGE_NUM  = 0
     //一页要现实的数量
-    let SHOW_NUM = 12
+    let SHOW_NUM = 20
     //cell 标识符
     let identifier = "cell"
     //文章列表数据

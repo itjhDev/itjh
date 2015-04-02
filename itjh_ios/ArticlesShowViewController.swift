@@ -71,60 +71,113 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
         return UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: self, action: nil)
     }
     
-    // 收藏按钮
+    // 没有收藏按钮
     var collectItem:UIBarButtonItem{
         let baritem = UIBarButtonItem()
         baritem.image = UIImage(named: "store_icon_default")
         baritem.tintColor = UIColor(rgba: "#8A8A8A")
-        
+        baritem.title = "no"
+
         baritem.action = "collectClick:"
         
 
         return baritem
     }
+    
+    // 已经收藏按钮
+    var collectItem1:UIBarButtonItem{
+        let baritem = UIBarButtonItem()
+        baritem.image = UIImage(named: "store_icon_pressed")
+        baritem.tintColor = UIColor(rgba: "#3C8ACB")
+        baritem.title = "yes"
+        baritem.action = "collectClick:"
+        
+        
+        return baritem
+    }
+    
     // 收藏方法
     func collectClick(barItme:UIBarButtonItem){
         println("点击了收藏")
         
-        if loginState{
+        if loginState{ //用户已经登录
+            
+            
+            //判断用户进行收藏还是取消收藏
+            let barTitle:String = barItme.title!
             let parameters = [
                 "user_client_id": userId,
-                "article_id":String(userId)
+                "article_id":String(artID)
             ]
-            
             println("++>>\( parameters)")
+
             
-            let re:Alamofire.Request = Alamofire.request(.POST, userCollection, parameters: parameters)
-            println(re.request)
-            re.responseJSON { (request, response, JSON_DATA, _) -> Void in
-                println(">>>>>>>  \(response)")
-                var result = 0
-                if JSON_DATA == nil{
-                    SCLAlertView().showWarning("温馨提示", subTitle:"网络有点问题,注册失败,请稍后重试!", closeButtonTitle:"ok")
-                    return
-                }else{
+                if barTitle == "yes"{ //用户进行取消收藏
+                
                     
-                    let data = JSON(JSON_DATA!)
+                    let re:Alamofire.Request = Alamofire.request(.POST, userCanceledArticle, parameters: parameters)
+                    println(re.request)
+                    re.responseJSON { (request, response, JSON_DATA, _) -> Void in
+                        println(">>>>>>>  \(response)")
+                        var result = 0
+                        if JSON_DATA == nil{
+                            SCLAlertView().showWarning("温馨提示", subTitle:"网络有点问题,注册失败,请稍后重试!", closeButtonTitle:"ok")
+                            return
+                        }else{
+                            let data = JSON(JSON_DATA!)
+                            //收藏状态
+                            result = data["result"].int!
+                            //返回结果
+                            let description = data["description"]
+                            
+                            if result != 0{
+                                println("取消收藏成功")
+                                barItme.image = UIImage(named: "store_icon_default")
+                                barItme.tintColor = UIColor(rgba: "#8A8A8A")
+                                barItme.title = "no"
+                                return
+                            }else{
+                                SCLAlertView().showWarning("温馨提示", subTitle:"\(description)", closeButtonTitle:"重试")
+                            }
+                            
+                        }
+                    }
+
+                }
+                if barTitle == "no"{ //用户进行收藏
+                
                     
-                    //收藏状态
-                    result = data["result"].int!
-                    
-                    //返回结果
-                    let description = data["description"]
-                    
-                    
-                    if result == 0{//收藏成功
-                        SCLAlertView().showWarning("温馨提示", subTitle:"\(description)", closeButtonTitle:"重试")
-                        
-                    }else{
-                        println("收藏成功")
-                        barItme.image = UIImage(named: "store_icon_pressed")
-                        barItme.tintColor = UIColor(rgba: "#3C8ACB")
-                        return
+                    let re:Alamofire.Request = Alamofire.request(.POST, userCollection, parameters: parameters)
+                    println(re.request)
+                    re.responseJSON { (request, response, JSON_DATA, _) -> Void in
+                        println(">>>>>>>  \(response)")
+                        var result = 0
+                        if JSON_DATA == nil{
+                            SCLAlertView().showWarning("温馨提示", subTitle:"网络有点问题,注册失败,请稍后重试!", closeButtonTitle:"ok")
+                            return
+                        }else{
+                            let data = JSON(JSON_DATA!)
+                            //收藏状态
+                            result = data["result"].int!
+                            //返回结果
+                            let description = data["description"]
+                            
+                            if result != 0{
+                                println("收藏成功")
+                                barItme.image = UIImage(named: "store_icon_pressed")
+                                barItme.tintColor = UIColor(rgba: "#3C8ACB")
+                                barItme.title = "yes"
+                                return
+                            }else{
+                                SCLAlertView().showWarning("温馨提示", subTitle:"\(description)", closeButtonTitle:"重试")
+                            }
+                            
+                        }
                     }
                     
                 }
-            }
+                
+            
         }else{
             var detailCtrl = UserLoginViewController(nibName: "UserLoginViewController", bundle: nil);
             detailCtrl.hidesBottomBarWhenPushed = true
@@ -143,8 +196,6 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
     // 分享方法
     func shareClick(barItme:UIBarButtonItem){
         println("点击了分享")
-        
-       
         
         
         var saimg = UIImage(data: NSData(contentsOfURL: NSURL(string: aimg)!)!)
@@ -198,7 +249,7 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
         self.navigationItem.titleView = navigationTitle
         
 
-        configToolbar()
+//        configToolbar()
         loadData()
         
 //        self.followScrollView(self.awebview)
@@ -211,7 +262,7 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
     func loadData(){
         
         
-        let articleUrl = "\(GET_ARTICLE_ID)\(artID)"
+        let articleUrl = "\(GET_ARTICLE_ID)\(artID)?userId=\(userId)"
         
         
         //generate items
@@ -237,6 +288,26 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
                     let articleContent = articles["content"]
                     //作者
                     let author = articles["author"]
+                    //是否收藏
+                    let isUserCollect = articles["isUserCollect"].int!
+                    println(isUserCollect)
+                    //判断是否收藏显示不同的图标
+                    var itmes = []
+                    if isUserCollect == 1{ //用户已经收藏
+                        
+                       itmes = [
+                            self.trashItem,self.spaceItem,self.praisedItem,self.spaceItem,self.collectItem1,self.spaceItem,self.shareItem
+                            
+                        ]
+                    }else{ //没有收藏
+                        itmes = [self.trashItem,self.spaceItem,self.praisedItem,self.spaceItem,self.collectItem,self.spaceItem,self.shareItem
+                            
+                        ]
+
+                    }
+                    self.atoolbar.setItems(itmes, animated: false)
+
+                    
                     //显示文章
                     let hr = "<hr class='rich_media_title'/>"
                     let topHtml = "<html lang='zh-CN'><head><meta charset='utf-8'><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><title>\(atitle)</title><meta name='apple-itunes-app' content='app-id=639087967, app-argument=zhihudaily://story/4074215'><meta name='viewport' content='user-scalable=no, width=device-width'><link rel='stylesheet' href='http://203.195.152.45:8080/itjh/resource/zhihu.css'><script src='http://203.195.152.45:8080/itjh/resource/jquery.1.9.1.js'></script><base target='_blank'></head><body> <div class='main-wrap content-wrap'> <div class='content-inner'> <div class='question'> <h2 class='question-title' >\(atitle)</h2> <div class='answer'> <div class='meta' style='padding-bottom:10px;border-bottom:1px solid #e7e7eb '> <span class='bio'>\(postTime)</span> &nbsp; <span class='bio'>\(author)</span> </div> <div class='content'>"
