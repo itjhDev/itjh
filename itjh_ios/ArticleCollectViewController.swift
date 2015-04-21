@@ -97,11 +97,11 @@ class ArticleCollectViewController: BaseViewController {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> HomeArticleTableViewCell {
         
-        var cell:HomeArticleTableViewCell! = atableView.dequeueReusableCellWithIdentifier(identifier) as HomeArticleTableViewCell
+        var cell:HomeArticleTableViewCell! = atableView.dequeueReusableCellWithIdentifier(identifier) as! HomeArticleTableViewCell
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         
-        cell.atitle.text = currentArticleData[indexPath.row].title
-        cell.aimg.sd_setImageWithURL(NSURL(string: currentArticleData[indexPath.row].img), placeholderImage: UIImage(named: "default_showPic.png"))
+        cell.atitle.text = currentArticleData[indexPath.row].title as String
+        cell.aimg.sd_setImageWithURL(NSURL(string: currentArticleData[indexPath.row].img as String), placeholderImage: UIImage(named: "default_showPic.png"))
         
          return cell
     }
@@ -115,8 +115,8 @@ class ArticleCollectViewController: BaseViewController {
       
         var detailCtrl = ArticlesShowViewController(nibName: "ArticlesShowViewController", bundle: nil);
         detailCtrl.artID = data.aid
-        detailCtrl.atitle = data.title
-        detailCtrl.aimg = data.img
+        detailCtrl.atitle = data.title as String
+        detailCtrl.aimg = data.img as String
         detailCtrl.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detailCtrl, animated: true)
     

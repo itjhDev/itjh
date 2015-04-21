@@ -40,7 +40,7 @@ class UserLoginViewController: UIViewController {
                 
                 var snsAccount = UMSocialAccountManager.socialAccountDictionary()
                 
-                var qqUser:UMSocialAccountEntity =  snsAccount[UMShareToQQ] as UMSocialAccountEntity
+                var qqUser:UMSocialAccountEntity =  snsAccount[UMShareToQQ] as! UMSocialAccountEntity
                 
                 println("QQ用户数据\(qqUser)")
                 //用户id
@@ -144,7 +144,7 @@ class UserLoginViewController: UIViewController {
                 
                 var snsAccount = UMSocialAccountManager.socialAccountDictionary()
                 
-                var sniaUser:UMSocialAccountEntity =  snsAccount[UMShareToSina] as UMSocialAccountEntity
+                var sniaUser:UMSocialAccountEntity =  snsAccount[UMShareToSina] as! UMSocialAccountEntity
                 
                 println("微博用户数据\(sniaUser)")
                 //用户id

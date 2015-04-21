@@ -305,7 +305,7 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
                         ]
 
                     }
-                    self.atoolbar.setItems(itmes, animated: false)
+                    self.atoolbar.setItems(itmes as Array, animated: false)
 
                     
                     //显示文章

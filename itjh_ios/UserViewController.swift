@@ -32,8 +32,8 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         
         let path = NSBundle.mainBundle().pathForResource("user", ofType: "plist")
         let namesDict = NSDictionary(contentsOfFile: path!)
-        names = namesDict as [String: [String]]
-        keys = sorted(namesDict!.allKeys as [String])
+        names = namesDict as! [String: [String]]
+        keys = sorted(namesDict!.allKeys as! [String])
      
        
         myTableView.sectionIndexBackgroundColor = UIColor.blackColor()
@@ -66,7 +66,7 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = myTableView.dequeueReusableCellWithIdentifier(sectionsTableIdentifier, forIndexPath: indexPath)
-            as UITableViewCell
+            as! UITableViewCell
         let ise = indexPath.section
         let irow = indexPath.row
         
@@ -102,7 +102,7 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         
     }
 
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
         let ise = indexPath.section
@@ -126,6 +126,8 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
                    userCollectAction()
                 }else{
                     var detailCtrl = ArticleCollectViewController(nibName: "ArticleCollectViewController", bundle: nil);
+                    detailCtrl.hidesBottomBarWhenPushed = true
+
                     detailCtrl.userId = userId
                     self.navigationController?.pushViewController(detailCtrl, animated: true)
                 }
@@ -153,13 +155,15 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
             case 0:
                   println("关注我们")
                 var detailCtrl = FollowViewController(nibName: "FollowViewController", bundle: nil);
-                
+                  detailCtrl.hidesBottomBarWhenPushed = true
+
                 self.navigationController?.pushViewController(detailCtrl, animated: true)
                 
             case 1:
                    println("关于我们")
                 var detailCtrl = AboutViewController(nibName: "AboutViewController", bundle: nil);
-                
+                   detailCtrl.hidesBottomBarWhenPushed = true
+
                 self.navigationController?.pushViewController(detailCtrl, animated: true)
                 
             default:
@@ -192,8 +196,8 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
         mailComposerVC.setSubject("IT江湖iOS反馈")
         //邮件内容
         let info:Dictionary = NSBundle.mainBundle().infoDictionary!
-        let appName = info["CFBundleName"] as String
-        let appVersion = info["CFBundleVersion"] as String
+        let appName = info["CFBundleName"] as! String
+        let appVersion = info["CFBundleVersion"] as! String
         mailComposerVC.setMessageBody("</br></br></br></br></br>基本信息：</br></br>\(appName)</br> \(UIDevice.currentDevice().name)</br>iOS \(UIDevice.currentDevice().systemVersion)", isHTML: true)
         return mailComposerVC
     }
