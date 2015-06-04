@@ -23,7 +23,7 @@ class HomeViewController: BaseViewController  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.atableView.tableFooterView=UIView()
         //加载nib
         var nib = UINib(nibName: "HomeArticleTableViewCell", bundle: nil)
         self.atableView.registerNib(nib, forCellReuseIdentifier: identifier)

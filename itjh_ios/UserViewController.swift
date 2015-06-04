@@ -25,7 +25,6 @@ class UserViewController: BaseViewController,UITableViewDataSource,UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
         self.navigationTitle.text = "我的江湖"
 
         myTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: sectionsTableIdentifier)
