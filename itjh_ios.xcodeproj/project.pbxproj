@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		45FCBEC4C7AAFCAE17DFFE6E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CBE911943584EB3D6EE0E5 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		D01C30451B38FEED001E9157 /* BaseTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01C30441B38FEED001E9157 /* BaseTabBarVC.swift */; };
+		D01C30471B38FF7C001E9157 /* UserGuiderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01C30461B38FF7C001E9157 /* UserGuiderVC.swift */; };
+		D01C30581B393956001E9157 /* page3.667.png in Resources */ = {isa = PBXBuildFile; fileRef = D01C30551B393956001E9157 /* page3.667.png */; };
+		D01C30591B393956001E9157 /* page2.667.png in Resources */ = {isa = PBXBuildFile; fileRef = D01C30561B393956001E9157 /* page2.667.png */; };
+		D01C305A1B393956001E9157 /* page1.667.png in Resources */ = {isa = PBXBuildFile; fileRef = D01C30571B393956001E9157 /* page1.667.png */; };
 		F45542261A81061D00B66334 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45542251A81061D00B66334 /* AppDelegate.swift */; };
 		F45542291A81061D00B66334 /* itjh_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F45542271A81061D00B66334 /* itjh_ios.xcdatamodeld */; };
 		F455422B1A81061D00B66334 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455422A1A81061D00B66334 /* ViewController.swift */; };
@@ -121,6 +126,11 @@
 /* Begin PBXFileReference section */
 		410EC6B1E6B572B52E2A2773 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		960940FFFE7D6602248EA38B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D01C30441B38FEED001E9157 /* BaseTabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarVC.swift; sourceTree = "<group>"; };
+		D01C30461B38FF7C001E9157 /* UserGuiderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserGuiderVC.swift; sourceTree = "<group>"; };
+		D01C30551B393956001E9157 /* page3.667.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.667.png; sourceTree = "<group>"; };
+		D01C30561B393956001E9157 /* page2.667.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.667.png; sourceTree = "<group>"; };
+		D01C30571B393956001E9157 /* page1.667.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.667.png; sourceTree = "<group>"; };
 		D4CBE911943584EB3D6EE0E5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F45542201A81061D00B66334 /* itjh_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itjh_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F45542241A81061D00B66334 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -309,6 +319,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D01C30541B393778001E9157 /* UserGuider */ = {
+			isa = PBXGroup;
+			children = (
+				D01C30551B393956001E9157 /* page3.667.png */,
+				D01C30561B393956001E9157 /* page2.667.png */,
+				D01C30571B393956001E9157 /* page1.667.png */,
+			);
+			name = UserGuider;
+			sourceTree = "<group>";
+		};
 		D941FA7B278E8CD97B6B39F6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +468,7 @@
 				F4A233241ACD97F10086BE8E /* FollowViewController.xib */,
 				F4A233271ACD99F60086BE8E /* AboutViewController.swift */,
 				F4A233281ACD99F60086BE8E /* AboutViewController.xib */,
+				D01C30461B38FF7C001E9157 /* UserGuiderVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -478,6 +499,7 @@
 			isa = PBXGroup;
 			children = (
 				F49ED4101ABC5223005BC563 /* Define.swift */,
+				D01C30441B38FEED001E9157 /* BaseTabBarVC.swift */,
 				F49ED3461ABC438D005BC563 /* BaseViewController.swift */,
 				F455422A1A81061D00B66334 /* ViewController.swift */,
 				F45542251A81061D00B66334 /* AppDelegate.swift */,
@@ -490,6 +512,7 @@
 		F4BF9ED51AB8614900CBF98F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D01C30541B393778001E9157 /* UserGuider */,
 				F4BF9EEC1AB8615F00CBF98F /* tanchuang_denglu_weibo@2x.png */,
 				F4BF9EED1AB8615F00CBF98F /* icon180.png */,
 				F4BF9EEE1AB8615F00CBF98F /* icon152@2x.png */,
@@ -708,12 +731,14 @@
 				F455422E1A81061D00B66334 /* Main.storyboard in Resources */,
 				F4BF9EE41AB8615600CBF98F /* default_showPic@2x.png in Resources */,
 				F4BF9EE91AB8615600CBF98F /* icon@3x.png in Resources */,
+				D01C305A1B393956001E9157 /* page1.667.png in Resources */,
 				F4BF9EF11AB8615F00CBF98F /* tanchuang_denglu_weibo@2x.png in Resources */,
 				F4E11D421AC9B02A0087F295 /* UMShareEditViewControlleriPad.xib in Resources */,
 				F4E11D541AC9B02A0087F295 /* ios-social-sdk-shake.html in Resources */,
 				F4E11D4F1AC9B02A0087F295 /* ios-social-sdk-comment-detail.html in Resources */,
 				F4BF9EE11AB8615600CBF98F /* daohang_wode_1.png in Resources */,
 				F4E11D501AC9B02A0087F295 /* ios-social-sdk-comment-quick.html in Resources */,
+				D01C30581B393956001E9157 /* page3.667.png in Resources */,
 				F45542331A81061D00B66334 /* LaunchScreen.xib in Resources */,
 				F4E11D531AC9B02A0087F295 /* ios-social-sdk-login-quick.html in Resources */,
 				F4BF9EE61AB8615600CBF98F /* icon_set@2x.png in Resources */,
@@ -721,6 +746,7 @@
 				F4E11D571AC9B02A0087F295 /* ios-social-sdk-socialBar.html in Resources */,
 				F4E11D441AC9B02A0087F295 /* UMSnsAccountViewController.xib in Resources */,
 				F4E11D3E1AC9B02A0087F295 /* UMSCommentDetailController.xib in Resources */,
+				D01C30591B393956001E9157 /* page2.667.png in Resources */,
 				F4BF9EE31AB8615600CBF98F /* my_icon@2x.png in Resources */,
 				F4D3EF011AC82C380090BECC /* ArticleCollectViewController.xib in Resources */,
 				F4BF9EE51AB8615600CBF98F /* default_showPic@3x.png in Resources */,
@@ -830,6 +856,8 @@
 				F4BF9ED21AB85C8400CBF98F /* Article.swift in Sources */,
 				F48782B41AC481E6001CDBD2 /* UserWeibo.swift in Sources */,
 				F492AD7D1AC685B300F5635F /* UIViewController+ScrollingNavbar.m in Sources */,
+				D01C30451B38FEED001E9157 /* BaseTabBarVC.swift in Sources */,
+				D01C30471B38FF7C001E9157 /* UserGuiderVC.swift in Sources */,
 				F492AD8F1AC6BBD800F5635F /* ArticlesShowViewController.swift in Sources */,
 				F4A504141AC3051F00207C6D /* ArticleTechnologyViewController.swift in Sources */,
 				F49ED4111ABC5223005BC563 /* Define.swift in Sources */,

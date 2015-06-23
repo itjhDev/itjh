@@ -8,6 +8,13 @@
 
 import Foundation
 
+// MARK: userDefaults key
+
+let HAD_SHOWN_USER_GUIDER_KEY = "hadShownUserGuiderKey"
+
+// MARK: 通知
+let SHOW_USER_GUIDER_NOTIFICATION = "showUserGuiderNotification"
+
 // MARK: 文章接口
 
 // 获取文章列表

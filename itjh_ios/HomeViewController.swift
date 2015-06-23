@@ -40,10 +40,29 @@ class HomeViewController: BaseViewController  {
         }
         self.atableView.footer.hidden = true
 
-        
+        //显示用户引导
+        if(NSUserDefaults.standardUserDefaults().boolForKey(HAD_SHOWN_USER_GUIDER_KEY) == false)
+        {
+            showUserGuider()
+        }
 
     }
 
+    
+    func showUserGuider()
+    {
+        var imgArray: [String] = []
+
+        for i in 1...3
+        {
+            var h: Int = Int(Define.screenHeight())
+            imgArray.append("page\(i).\(h)" + ".png" )
+        }
+        
+        let ugVC = UserGuiderVC(imageArray: imgArray)
+        self.presentViewController(ugVC, animated: false, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

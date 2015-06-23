@@ -229,10 +229,10 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let def = Define()
-        let iOS7:Bool = def.ifIOS7()
-        let screenHeight:CGFloat = def.screenHeight()
-        let screenWidth:CGFloat = def.screenWidth()
+      
+        let iOS7:Bool = Define.ifIOS7()
+        let screenHeight:CGFloat = Define.screenHeight()
+        let screenWidth:CGFloat = Define.screenWidth()
 
         UINavigationBar.appearance().frame = CGRect(x:0.0,y:20.0,width:screenWidth,height:screenHeight-20)
         

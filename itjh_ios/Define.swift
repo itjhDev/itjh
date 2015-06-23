@@ -13,7 +13,7 @@ import UIKit
 class Define:NSObject {
     
     // 设备系统版本
-    func ifIOS7()->Bool{
+   class func ifIOS7()->Bool{
         
         let t =  UIDevice.currentDevice()
         let v = t.systemVersion
@@ -30,7 +30,7 @@ class Define:NSObject {
     
     
     // 获取设备的物理高度
-    func screenHeight()->CGFloat {
+  class  func screenHeight()->CGFloat {
         
         let main = UIScreen.mainScreen()
         
@@ -40,7 +40,7 @@ class Define:NSObject {
     }
     
     // 获取设备的物理高度
-    func screenWidth()->CGFloat {
+  class  func screenWidth()->CGFloat {
         let main = UIScreen.mainScreen()
         var rect = main.bounds
         var width = rect.width

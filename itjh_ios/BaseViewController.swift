@@ -30,16 +30,16 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let def = Define()
-        let iOS7:Bool = def.ifIOS7()
-        let screenHeight:CGFloat = def.screenHeight()
-        let screenWidth:CGFloat = def.screenWidth()
+        let iOS7:Bool = Define.ifIOS7()
+        let screenHeight:CGFloat = Define.screenHeight()
+        let screenWidth:CGFloat = Define.screenWidth()
         //设置Nav
         if iOS7==true {
             navigationTitle.frame = CGRect(x:(screenWidth-200)/2,y:20.0,width:200,height:44)
         }else{
             navigationTitle.frame = CGRect(x:(screenWidth-200)/2,y:0.0,width:200,height:44)
         }
+        self.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
         self.navigationTitle.text = "IT江湖"
         self.navigationTitle.textColor=UIColor.whiteColor()
         navigationTitle.backgroundColor = UIColor.clearColor()
