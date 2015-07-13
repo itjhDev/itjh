@@ -46,7 +46,7 @@ class ArticleInterestingViewController: BaseViewController {
     
     
     // MARK: 加载数据
-    func loadData(offset:Int, size:Int){
+    func loadData(offset:Int, size:Int,from:String){
         
         //接口url
         var articleUrl = url + "\(offset)/\(size)"
@@ -76,6 +76,17 @@ class ArticleInterestingViewController: BaseViewController {
                         article.author = currentArticle["author"].string!
                         self.currentArticleData.append(article)
                     }
+                    //刷新tableview
+                    self.atableView.reloadData()
+                    if from == "header" {
+                        // 拿到当前的下拉刷新控件，结束刷新状态
+                        self.atableView.header.endRefreshing()
+                        self.atableView.footer.hidden = false
+                    }else{
+                        self.atableView.footer.endRefreshing();
+                    }
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    //end
                 }else{
                     self.atableView.footer.noticeNoMoreData()
                 }
@@ -138,11 +149,11 @@ class ArticleInterestingViewController: BaseViewController {
 
         // 1.添加数据
         self.PAGE_NUM += 1
-        loadData(PAGE_NUM, size: SHOW_NUM)
+        loadData(PAGE_NUM, size: SHOW_NUM,from: "footer")
         
         // 2.刷新表格
         // 拿到当前的上拉刷新控件，结束刷新状态
-        let delayInSeconds:Int64 = 1000000000 * 2
+        /*let delayInSeconds:Int64 = 1000000000 * 2
         var popTime:dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW,delayInSeconds)
         dispatch_after(popTime, dispatch_get_main_queue(), {
             
@@ -151,7 +162,7 @@ class ArticleInterestingViewController: BaseViewController {
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 
             
-        })
+        })*/
     }
     // MARK: 下拉刷新数据
     func loadNewData(){
@@ -159,10 +170,10 @@ class ArticleInterestingViewController: BaseViewController {
 
         // 1.添加假数据
         self.PAGE_NUM = 0
-        loadData(self.PAGE_NUM, size: SHOW_NUM)
+        loadData(self.PAGE_NUM, size: SHOW_NUM,from: "header")
         
         // 2.模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
-        let delayInSeconds:Int64 = 1000000000 * 1
+        /*let delayInSeconds:Int64 = 1000000000 * 1
         var popTime:dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW,delayInSeconds)
         dispatch_after(popTime, dispatch_get_main_queue(), {
             
@@ -173,7 +184,7 @@ class ArticleInterestingViewController: BaseViewController {
             self.atableView.footer.hidden = false
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 
-        });
+        });*/
         
     }
 
