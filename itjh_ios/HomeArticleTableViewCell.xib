@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="187" id="q97-nP-eid" customClass="HomeArticleTableViewCell" customModule="itjh_ios" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q97-nP-eid" id="7gj-ON-Xhq">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="IT江湖,每一个IT人的江湖!IT江湖,每一个IT人的江湖!" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="qbK-rZ-F3y">
+                        <rect key="frame" x="11" y="14" width="202" height="62"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="default_showPic.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zty-C1-a1g">
+                        <rect key="frame" x="221" y="14" width="85" height="65"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Zty-C1-a1g" firstAttribute="width" secondItem="qbK-rZ-F3y" secondAttribute="height" multiplier="85:62" id="2Vz-qh-uXK"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="qbK-rZ-F3y" secondAttribute="trailing" constant="99" id="AWH-ON-G59"/>
+                    <constraint firstItem="qbK-rZ-F3y" firstAttribute="leading" secondItem="7gj-ON-Xhq" secondAttribute="leadingMargin" constant="3" id="UQl-1G-DSa"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="qbK-rZ-F3y" secondAttribute="bottom" constant="10" id="Uyw-Ka-Fdc"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Zty-C1-a1g" secondAttribute="bottom" constant="7" id="XWy-lx-fpk"/>
+                    <constraint firstItem="Zty-C1-a1g" firstAttribute="top" secondItem="7gj-ON-Xhq" secondAttribute="topMargin" constant="6" id="dSm-nH-nUJ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Zty-C1-a1g" secondAttribute="trailing" constant="6" id="lxD-qs-XlY"/>
+                    <constraint firstItem="qbK-rZ-F3y" firstAttribute="top" secondItem="7gj-ON-Xhq" secondAttribute="topMargin" constant="6" id="rL8-1x-S8G"/>
+                </constraints>
+            </tableViewCellContentView>
+            <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+            <connections>
+                <outlet property="aimg" destination="Zty-C1-a1g" id="xQR-eB-vfz"/>
+                <outlet property="atitle" destination="qbK-rZ-F3y" id="0B2-yx-8Dr"/>
+            </connections>
+            <point key="canvasLocation" x="311" y="141.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="default_showPic.png" width="90" height="70"/>
+    </resources>
+</document>
