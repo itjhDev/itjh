@@ -12,3 +12,6 @@ AppStore下载地址：http://url.cn/Ub94qF 记得好评哦 谢谢支持
 如果想加入IT江湖的开发,请联系iosdev@itjh.com.cn IT江湖期待你的加入
 
 IT江湖iOS客户端正在全新设计UI，Swift2.0开发！！大家多多支持！！
+
+
+Swift2.0 版本，正在筹备中！！期待新的变化吧！！
