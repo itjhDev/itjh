@@ -21,7 +21,7 @@ class ArticlesShowViewController: UIViewController,UIScrollViewDelegate {
     
     var atitle = ""
     
-    var shareUrl = "http://www.itjh.com.cn/"
+    var shareUrl = "http://www.itjh.net/"
     
     var aimg = ""
     
